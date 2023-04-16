@@ -1,0 +1,51 @@
+<div class="bg_newest container px-xl-5 px-lg-4 px-md-5 px-sm-3 mb-5">
+    <img class="newest_img" src="../assets/img/web/home/moinhat.png" alt="">
+    <div class="container trending_title">
+        <p>Mới nhất</p>
+    </div>
+    <div class="container card_content">
+        <div class=" row card_content_list">
+            <div *ngFor="let product of products" class="col-12 col-lg-3 col-xl-3 col-md-6 col-sm-6 col-xs-12 mb-4">
+                <div class="card">
+                    <div class="card_img_header" [routerLink]="['/products/', product.id]">
+                        <img class="card-img-top" src="{{product.thumbnail}}" alt="Card image cap">
+                    </div>
+                    <!-- the heart of productCard -->
+                    <app-favourite [product]="product" [belongTo]="'newest'"></app-favourite>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-2">
+                            <div class="trending_option">
+                                <span *ngIf="product.isExchange" class="iconify"
+                                    data-icon="ic:baseline-swap-horizontal-circle" style="color: #44609f;"
+                                    data-width="25" data-height="25"></span>
+                                <span *ngIf="product.isSell" class="iconify" data-icon="foundation:burst-sale"
+                                    style="color: #44609f;" data-width="30" data-height="30"></span>
+                                <span *ngIf="product.isAuction" class="iconify" data-icon="ri:auction-fill"
+                                    style="color: #44609f;" data-width="25" data-height="25"></span>
+                                <span *ngIf="product.isGift" class="iconify" data-icon="fluent:gift-20-filled"
+                                    style="color: #44609f;" data-width="25" data-height="25"></span>
+                            </div>
+                            <div>
+                                <span class="point">{{getCondition(product.condition)}}</span>
+                                <!-- <span class="iconify" data-icon="el:star-alt" style="color: #ffde17;" data-width="18" data-height="18"></span> -->
+                            </div>
+                        </div>
+                        <p [routerLink]="['/products/', product.id]" class="card-title">{{product.name}}</p>
+                        <div class="d-flex justify-content-between ">
+                            <div>
+                                <a href="" style="display: flex;">
+                                    <img src="{{product.profile.avatar}}" alt="" width="30px" height="30px"
+                                        class="rounded-circle" style="object-fit: cover;">
+                                    <p class="product-username">{{product.profile.displayName}}</p>
+                                </a>
+                            </div>
+                            <span class="time-left">{{calculateDate(product.createdDate)}} ngày</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

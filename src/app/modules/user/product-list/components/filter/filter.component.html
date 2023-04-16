@@ -1,0 +1,68 @@
+<div class="col-12 toggle" id="toggle" (click)="toggleFilterNav()">
+    <span data-toggle="collapse" data-target="#filter" value="true" class="iconify filter-toggle"
+        data-icon="bi:filter-square-fill"></span>
+</div>
+<div id="filter" class="filter collapse show">
+    <div class="filter-header d-flex justify-content-center align-content-center">
+        <div>
+            <span class="">Lọc sản phẩm</span>
+            <div class="d-inline" (click)="onResetFilter($event)">
+                <span class="iconify" data-icon="ion:refresh-circle"></span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="category criteria">
+        <form [formGroup]="categoryForm">
+            <p class="title">Danh mục</p>
+            <div *ngFor="let category of categories" class="type">
+                <input type="checkbox" name="categoryCheckboxes" [value]="category.id" [checked]="category.isChecked"
+                    (change)="onCategoryChange($event)" #categoryCheckboxes #checkboxes [classList]="category.id">
+                <span class="name">{{category.name}}</span>
+            </div>
+        </form>
+    </div>
+    <hr>
+    <div class="status criteria">
+        <form [formGroup]="conditionForm">
+            <p class="title">Trạng thái</p>
+            <div class="type">
+                <input type="checkbox" name="" value="NEW" (change)="onConditionChange($event)" #checkboxes>
+                <span class="name">Mới</span>
+            </div>
+            <div class="type">
+                <input type="checkbox" name="" value="LIKENEW" (change)="onConditionChange($event)" #checkboxes>
+                <span class="name">Hàng 99%</span>
+            </div>
+            <div class="type">
+                <input type="checkbox" name="" id="" value="USED" (change)="onConditionChange($event)" #checkboxes>
+                <span class="name">Đã sử dụng</span>
+            </div>
+        </form>
+    </div>
+    <hr>
+    <div class="area criteria">
+        <form [formGroup]="cityForm">
+            <p class="title">Khu vực</p>
+            <div class="type" *ngFor="let city of cities">
+                <input type="checkbox" name="" [value]="city.id" (change)="onCityChange($event)" #checkboxes>
+                <span class="name">{{city.name}}</span>
+            </div>
+        </form>
+    </div>
+    <hr>
+    <div class="product-type criteria">
+        <form [formGroup]="purposeForm">
+            <p class="title">Kiểu sản phẩm</p>
+            <div class="type">
+                <input type="checkbox" name="" value="EXCHANGE" (change)="onPurposeChange($event)" #checkboxes>
+                <span class="name">Hàng trao đổi</span>
+            </div>
+            <div class="type">
+                <input type="checkbox" name="" id="" value="GIFT" (change)="onPurposeChange($event)" #checkboxes>
+                <span class="name">Quà tặng</span>
+            </div>
+        </form>
+    </div>
+</div>

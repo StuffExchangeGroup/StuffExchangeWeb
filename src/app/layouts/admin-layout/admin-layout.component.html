@@ -1,0 +1,17 @@
+<!-- Sidenav -->
+<app-sidebar [menuItems]="menuItems || []"></app-sidebar>
+<div class="main-content">
+  <!-- Top navbar -->
+  <app-navbar [currentUser]="currentUser"
+              (logoutEvent)="logout()">
+  </app-navbar>
+  <!-- Pages -->
+  <div class="content-page">
+    <router-outlet></router-outlet>
+  </div>
+
+  <div class="container-fluid">
+    <app-footer [currentTime]="currentTime"></app-footer>
+  </div>
+</div>
+

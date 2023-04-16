@@ -1,0 +1,83 @@
+<div class="container-fluid" id="site-header" [ngClass]="isHeaderHide ? 'hide-header' : 'not-hide-header'">
+    <div class="row mx-2">
+        <div class="logo_img col-xl-2 col-lg-2 col-md-2 col-2  d-lg-block d-xl-block">
+            <a href="" [routerLink]="['/']" class="mx-0">
+                <img class="img_logo_header " src="../../../../../assets/img/header/logo_home.png" alt="">
+            </a>
+        </div>
+        <div class="search_bar col-6 col-md-6 col-xl-6 col-lg-6 col-sm-6 mt-2">
+            <div class="container-input input-group mt-3 mb-1">
+                <input type="text" class="form-control" placeholder="Tìm kiếm" aria-label="Username"
+                    aria-describedby="basic-addon1" [(ngModel)]="search" (keyup.enter)="onSubmit()" />
+                <div class="input-group-prepend" (click)="onSubmit()">
+                    <span class="btn input-group-text bg-white" id="basic-addon1">
+                        <span data-width="20px" class="iconify" data-icon="bx:bx-search-alt-2"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="container_menu_search d-md-block">
+                <ul class="d-flex  p-0 ">
+                    <li class="menu" *ngFor="let item of suggestionList" (click)="selectSuggestion(item.name)">
+                        <a class="text-dark">{{item.name}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div [ngClass]="isLogin ? 'hide' : '' "
+            class="col-xl-3 col-lg-3 col-md-3 col-5 col-sm-4 col-xs-4 d-flex mt-4 header_group_icon ml-3 justify-content-center align-content-center">
+            <span class="iconify" data-icon="carbon:user-avatar-filled-alt" style="color: #44609f;" data-width="35"
+                data-height="35"></span>
+            <a [routerLink]="['auth/login']" href="" class="btn-login">
+                <span style="color: #44609F; font-weight: 600;">
+                    Đăng nhập</span>
+            </a>
+        </div>
+        <div [ngClass]="isLogin ? '' : 'hide' "
+            class="col-xl-3 col-lg-3 col-md-3 col-6 col-sm-4 col-xs-4 d-flex mt-4 header_group_icon ml-3 justify-content-center h-100">
+            <div class="d-flex w-auto user">
+                <div class="header-avt">
+                    <img src="{{user?.avatar}}" class="avt-login" alt="">
+                </div>
+                <div class="btn-login">
+                    <span class="username">
+                        {{user?.displayName}}
+                    </span>
+                    <span class="iconify" data-icon="ant-design:caret-down-outlined" data-width="18" data-height="18">
+                    </span>
+                    <div class="menu-down">
+                        <ul class="list-group">
+                            <li class="list-group-item" [routerLink]="['/profile/edit']"><a>Thông tin tài khoản</a></li>
+                            <li class="list-group-item" [routerLink]="['/profile/product/post']"><a>Đăng sản phẩm</a>
+                            </li>
+                            <li class="list-group-item" [routerLink]="['/profile/product/list']"><a>Quản lý sản
+                                    phẩm</a></li>
+                            <li class="list-group-item" [routerLink]="['/profile/notification']"><a>Thông báo </a>
+                                <span class="badge badge-pill"
+                                    style="background-color: #EB5F4D !important;color: #ffff;">{{notificationCount}}</span>
+                            </li>
+                            <li class="list-group-item" [routerLink]="['/profile/wish-list']"><a>Sản phẩm yêu thích</a>
+                            </li>
+                            <li class="list-group-item" (click)="logout()"><a>Đăng xuất</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row menu-header">
+        <div class="container_menu_header d-md-block">
+            <ul class="d-flex p-0 h-100 align-items-center my-auto">
+                <li class="menu-list"><a class="item-menu" [routerLink]="['/']" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact:true}">Trang
+                        chủ</a></li>
+                <li class="menu-list"><a class="item-menu" [routerLink]="['/products']" routerLinkActive="active">Sản
+                        phẩm</a></li>
+                <li class="menu-list"><a class="item-menu" [routerLink]="['/my-exchanges']"
+                        routerLinkActive="active">Trao đổi</a></li>
+                <li class="menu-list"><a class="item-menu" routerLinkActive="active">Về chúng tôi</a></li>
+                <li class="menu-list"><a class="item-menu" routerLinkActive="active">Trợ giúp</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div style="height: 134px;"></div>

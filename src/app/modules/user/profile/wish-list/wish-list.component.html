@@ -1,0 +1,50 @@
+<div class="products">
+    <div class="favourite-header">
+        <div class="col-12 d-flex justify-content-center align-items-center h-100">
+            <p class="title">Sản phẩm yêu thích</p>
+        </div>
+    </div>
+    <ngx-spinner [fullScreen]="false" bdColor="rgb(213, 213, 213, 0.8)" size="medium" color="#44609F"
+        type="ball-scale-multiple">
+    </ngx-spinner>
+    <div *ngIf="myWishLists" class="row content">
+        <div *ngIf="myWishLists.length === 0" class="message"><a [routerLink]="['/products']">Khám phá ngay</a>
+        </div>
+        <div *ngFor="let myWishList of myWishLists; trackBy: trackId"
+            class="parent-card col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
+            <div class="card">
+                <div class="thumbnail">
+                    <img src="{{myWishList.thumbnail}}" alt="">
+                </div>
+                <app-favourite [product]="myWishList" [belongTo]="'wish-list'"></app-favourite>
+                <div class="information">
+                    <div class="d-flex justify-content-between icon-condition">
+                        <div>
+                            <span *ngIf="myWishList.isExchange" class="iconify"
+                                data-icon="ic:baseline-swap-horizontal-circle" style="color: #44609f;" data-width="25"
+                                data-height="25"></span>
+                            <span *ngIf="myWishList.isGift" class="iconify" data-icon="fluent:gift-20-filled"
+                                style="color: #44609f;" data-width="20" data-height="20"></span>
+                        </div>
+                        <div class="condition">{{getCondition(myWishList.productCondition)}}</div>
+                    </div>
+
+                    <div [routerLink]="['/products/', myWishList.id]" class="product-name">
+                        <p>{{myWishList.title}}</p>
+                    </div>
+
+                    <div class="d-flex justify-content-between avatar-day row">
+                        <div class="avatar-user col-8 d-flex align-items-center">
+                            <img src="{{myWishList.avatar}}" alt="">
+                            <span class="name">{{myWishList.displayName}}</span>
+                        </div>
+                        <div class="day d-flex align-items-center col-4 justify-content-end">
+                            <span class="align-items-end">19 ngày</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

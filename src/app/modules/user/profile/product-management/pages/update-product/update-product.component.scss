@@ -1,0 +1,261 @@
+/* start post product */
+.post-product {
+    background-color: #FFFFFF;
+    border-radius: 10px 10px 0px 0px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}
+
+textarea:focus,
+input:focus,
+select:focus {
+    outline: none;
+}
+
+::placeholder {
+    color: #939191;
+    font-size: 16px;
+}
+
+.post-header {
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    padding: 10px 0;
+    font-size: 22px;
+    /* border-bottom: 1px solid gray; */
+    color: #44609F;
+    font-weight: 500;
+    margin: 0;
+}
+
+.post-header .title {
+    color: #44609F;
+    margin: 0 !important;
+    font-size: 22px;
+    color: #44609F;
+    font-weight: 500;
+}
+
+.type-input {
+    font-weight: 300 !important;
+
+}
+
+.type-input option {
+    font-size: 16px;
+    font-weight: 300 !important;
+}
+
+h6 {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #000;
+    margin-bottom: 0;
+}
+
+.content {
+    padding: 30px 20px 20px 20px;
+    margin: 10px 0 0 0;
+    background-color: #FFFFFF;
+}
+
+.content .type-information {
+    padding: 7px 0;
+}
+
+.content .purpose input {
+    transform: scale(1.5);
+}
+
+.content .type-input {
+    background: #FFFFFF;
+    border: 0.3px solid gray;
+    border-radius: 5px;
+    padding: 3px 15px;
+}
+
+.content-right {
+    position: relative;
+}
+
+.upload-file {
+    padding: 7px 0;
+    height: 40%;
+}
+
+.upload-file .choose-file {
+    width: 100%;
+    border: 1px dashed #44609F;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.child-choose-file {
+    // position: absolute;
+    // top: 57%;
+    // right: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+input[type='file'] {
+    font-size: 0;
+}
+
+::file-selector-button {
+    font-size: initial;
+}
+
+.child-choose-file p {
+    font-family: 'Kanit';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 22px;
+    color: #063BB0;
+    margin: 0;
+}
+
+.preview-file {
+    display: flex;
+    /* justify-content: space-between; */
+    margin-top: 20px;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.preview-file .preview-file-child {
+    padding: 10px 5px;
+}
+
+
+
+.preview-file .preview-file-child .image {
+    position: relative;
+
+}
+
+.preview-file .preview-file-child .image img {
+    object-fit: contain;
+    // border: 0.5px solid gray;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.preview-file .preview-file-child .close-icon {
+    position: absolute;
+    top: -15px;
+    right: -6px;
+}
+
+.total-file {
+    font-family: 'Kanit';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    color: #44609F;
+
+}
+
+.content-right-submit {
+    position: absolute;
+    bottom: 3%;
+    width: 90%;
+}
+
+.content-right-submit .submitBtn {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 0 20px;
+    height: 35px;
+    width: 100%;
+    margin-top: 15px;
+    background-color: #44609F;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-right-submit .submitBtn p {
+    margin: 0;
+    font-weight: 400;
+    font-family: 'Kanit', sans-serif;
+}
+
+.content-right-submit .submitBtn:hover .exchange-logo {
+    transform: rotate(180deg);
+    transition: 0.4s all;
+}
+
+.content-right-submit .exchange-logo {
+    height: 30px;
+    transition: 0.4s all;
+}
+
+
+::-webkit-scrollbar {
+    height: 7px;
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #44609F;
+    border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #215be2
+}
+
+/* end post product */
+
+@media only screen and (max-width: 999px) {
+
+    .content-right {
+        height: 350px;
+    }
+
+    .child-choose-file {
+        right: 45% !important;
+    }
+
+    .preview-file {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.error-message {
+    color: red;
+}
+
+.error-message p {
+    color: red;
+    font-size: 13px;
+    font-weight: 300;
+    margin: 0;
+    display: inline;
+    margin-left: 2px;
+}
+
+.error-message svg {
+    color: red;
+    font-size: 20px;
+}
+
+.cursor {
+    cursor: pointer;
+}

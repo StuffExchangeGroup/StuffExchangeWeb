@@ -1,0 +1,21 @@
+.heart {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border: none;
+    background: none;
+}
+
+.heart:hover {
+    transform: scale(1.3);
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.favourited {
+    color: red !important;
+}
+
+.notFavourited {
+    color: #dfd9d9;
+}

@@ -1,0 +1,5 @@
+<app-chatting-list [isReloadChat]="isReloadChat" [currentProductId]="currentProductId" [hidden]="!isShowChattingList"
+    (selectConversationEvent)="selectConversationHandler($event)"></app-chatting-list>
+
+<app-chatting [roomChat]="roomChat" [hidden]="!isShowConversation"
+    (backToChattingListEvent)="backToChattingListHandler()"></app-chatting>

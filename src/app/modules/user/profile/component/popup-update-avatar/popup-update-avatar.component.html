@@ -1,0 +1,38 @@
+<div class="pop-up-swap">
+    <img [ngStyle]="{'display': isLoading ? 'block' : 'none'}" height="25px" width="25px"
+        style="position: absolute; right: 50%;top: 50%;" src="../../../../../../assets/img/web/isLoading.gif" alt="">
+    <div class="popup-header">
+        <h3 class="popup-title">Đổi ảnh đại diện</h3>
+        <div class="close" (click)="closePopUp()">
+            <span style="color: #44609f;" class="iconify" data-icon="ep:close-bold" data-width="17"
+                data-height="17"></span>
+        </div>
+    </div>
+    <div class="popup-content">
+        <div *ngIf="tempUrlAvatar" class="preview-avatar">
+            <img width="150px" height="150px" src="{{tempUrlAvatar}}" alt="">
+        </div>
+        <div class="upload-file w-100">
+            <!-- <h6 for="">Hình ảnh sản phẩm</h6> -->
+            <div class="choose-file">
+                <div class="child-choose-file">
+                    <label class="choose-file" for="files">
+                        <span class="iconify" data-icon="ant-design:camera-filled" style="color: #7d7d7d;"
+                            data-width="40" data-height="40"></span>
+                    </label>
+                    <label class="choose-file" for="files">
+                        <p>Chọn hình ảnh</p>
+                    </label>
+                    <input [disabled]="isLoading" id="files" type="file" placeholder=" " value="submit"
+                        (change)="onSelectFile($event)" accept="image/*" style="display: none;">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popup-footer">
+        <button (click)="onUpdateAvatar()" class="submitBtn btn">
+            <p>Cập nhật ngay </p>
+            <img class="exchange-logo" src="../../../../../../assets/img/logo/logo_wy.png" alt="">
+        </button>
+    </div>
+</div>

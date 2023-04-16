@@ -1,0 +1,30 @@
+<div class="information">
+    <ngx-spinner [fullScreen]="false" bdColor="rgb(213, 213, 213, 0.5)" size="medium" color="#44609F"
+        type="ball-scale-multiple">
+    </ngx-spinner>
+    <div class="header">
+        Thông tin tài khoản
+    </div>
+    <div class="content row">
+        <div class="left-content col-12 col-lg-6">
+            <app-update-information [user]="user"></app-update-information>
+        </div>
+        <div class="right-content col-12 col-lg-6">
+            <app-show-contact [hidden]="!isContactShowing" [user]="user"
+                (updateContactEvent)="updateContactHandler($event)">
+            </app-show-contact>
+            <app-update-phone [hidden]="!isUpdatePhoneShowing" [user]="user"
+                (updateUserEvent)="updateUserHandler($event)" (hideUpdatePhoneFormEvent)="hideUpdatePhoneFormHandler()">
+            </app-update-phone>
+            <app-update-email [hidden]="!isUpdateEmailShowing" [user]="user"
+                (updateUserEvent)="updateUserHandler($event)" (hideUpdateEmailFormEvent)="hideUpdateEmailFormHandler()"
+                (showConfirmOTPFormEvent)="showConfirmOTPFormHandler($event)">
+            </app-update-email>
+            <app-confirm-otp [hidden]="!isConfirmOTPShowing" [email]="tempEmail" [user]="user"
+                (hideConfirmOTPFormEvent)="hideConfirmOTPFormHandler()">
+            </app-confirm-otp>
+            <app-change-password [hidden]="!isChangePasswordShowing"
+                (hideChangePasswordFormEvent)="hideChangePasswordFormHandler()"></app-change-password>
+        </div>
+    </div>
+</div>

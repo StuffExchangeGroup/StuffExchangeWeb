@@ -1,0 +1,113 @@
+/* Main */
+
+.bg_introduce {
+    position: relative;
+    background-image: url('../../../../../../assets/img/web/home/bg_introduce.png'); 
+    background-repeat: no-repeat; 
+    // object-fit: contain; 
+    background-size: contain;
+    height: 800px;
+    width: 100%;
+}
+
+.introduce_content {
+    position: absolute;
+    top: 130px;
+    left: 100px;
+}
+
+.introduce_content h3 {
+    color: #FFFFFF;
+    margin-top: 20px;
+    font-size: 28px;
+    width: 100%;
+}
+
+.introduce_content h1 {
+    color: #F9D545;
+    font-weight: 600;
+    margin-top: 20px;
+    font-size: 40px;
+
+}
+
+/* Tablet & mobile*/
+@media (max-width : 1223px) {
+    .bg_introduce {
+        height: 600px;   
+    }
+    
+    .introduce_content h3 {
+        font-size: 25px;
+    }
+    
+}
+@media (max-width : 1023px) {
+    .introduce_content {
+        top: 60px;
+        left: 80px;
+    }
+
+    .introduce_content h3 {
+        font-size: 20px;
+        font-family: 'Kanit', sans-serif !important;
+    }
+
+    .introduce_content h1 {
+        font-size: 28px;
+        font-family: 'Kanit', sans-serif !important;
+
+    }
+    
+    .bg_introduce {
+        height: 500px;   
+    }
+}
+
+@media (max-width : 740px) {
+    .introduce_content {
+        top: 30px;
+        left: 50px;
+    }
+
+    .introduce_content h3 {
+        font-size: 80%;
+        margin-top: 10px;
+        font-family: 'Kanit', sans-serif !important;
+
+    }
+
+    .introduce_content h1 {
+        font-size: 80%;
+        margin-top: 10px;
+        font-family: 'Kanit', sans-serif !important;
+    }
+    
+    .bg_introduce {
+        height: 300px;   
+    }
+}
+
+@media (max-width : 576px) {
+    .introduce_content {
+        top: 15px;
+        left: 30px;
+    }
+
+    .introduce_content h3 {
+        font-size: 70%;
+        margin-top: 3px;
+        font-family: 'Kanit', sans-serif !important;
+
+    }
+
+    .introduce_content h1 {
+        font-size: 60%;
+        margin-top: 3px;
+        font-family: 'Kanit', sans-serif !important;
+    }
+    
+    // .bg_introduce {
+    //     height: 200px;   
+    // }
+}

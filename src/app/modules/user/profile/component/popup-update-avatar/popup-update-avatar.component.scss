@@ -1,0 +1,131 @@
+.pop-up-swap {
+    position: relative;
+    height: 468px;
+    width: 400px;
+    /* margin: 0 auto; */
+    background: #FFFFFF;
+    box-shadow: 3.4234px 3.4234px 11.4113px rgba(0, 0, 0, 0.25), -3.4234px -3.4234px 11.4113px rgba(0, 0, 0, 0.25);
+    border-radius: 11px;
+}
+
+.pop-up-swap .popup-header {
+    height: 10%;
+    width: 100%;
+    border-bottom: 1px solid #C4C4C4;
+}
+
+.pop-up-swap .popup-header .popup-title {
+    text-align: center;
+    font-family: 'Kanit', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 18px;
+    text-transform: uppercase;
+    color: #3D5FAC;
+    margin: 0;
+    padding: 15px 0;
+}
+
+.pop-up-swap .popup-header .close {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    cursor: pointer;
+}
+
+.pop-up-swap .popup-content {
+    height: 76%;
+    overflow: auto;
+}
+
+.popup-footer {
+    height: 14%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid #C4C4C4;
+}
+
+.popup-footer .submitBtn {
+    font-size: 18px;
+    font-weight: 500;
+    padding: 0 20px;
+    height: 40px;
+    background-color: #44609F;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup-footer .submitBtn p {
+    margin: 0;
+    font-weight: 400;
+    font-family: 'Kanit', sans-serif;
+}
+
+.popup-footer .submitBtn:hover .exchange-logo {
+    transform: rotate(180deg);
+    transition: 0.4s all;
+}
+
+.popup-footer .exchange-logo {
+    height: 30px;
+    transition: 0.4s all;
+}
+
+.popup-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.upload-file {
+    padding: 7px 0;
+    height: 40%;
+}
+
+.preview-avatar {
+    display: flex;
+    justify-items: center;
+}
+
+.preview-avatar img {
+    border-radius: 50%;
+    margin: auto;
+    object-fit: cover;
+}
+
+.upload-file .choose-file {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.child-choose-file {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.choose-file {
+    cursor: pointer;
+
+}
+
+
+.child-choose-file p {
+    font-family: 'Kanit';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 22px;
+    color: #063BB0;
+    margin: 0;
+}

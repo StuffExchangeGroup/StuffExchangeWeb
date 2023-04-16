@@ -1,0 +1,136 @@
+<div class="form_signup">
+    <div class="header">
+        <div>
+            <h3>ĐĂNG KÝ</h3>
+            <span>
+                Tạo tài khoản với Stuff Exchange ngay
+            </span>
+        </div>
+        <img src="../../../../../assets/img/sign-up/signup_image_1.png" alt="">
+    </div>
+    <div>
+        <div class="alert alert-danger alert-dismissible fade show" *ngIf="messageError">
+            <span class="iconify" data-icon="bx:error-circle"></span>
+            <span class="message">{{messageError}}</span>
+        </div>
+        <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()" class="main_form">
+            <ngx-spinner [fullScreen]="false" bdColor="rgb(213, 213, 213, 0.5)" size="medium" color="#44609F"
+                type="ball-scale-multiple">
+            </ngx-spinner>
+            <div class="row">
+                <input class=" col-xs-5 col-5 col-sm-5 col-md-5 col-lg-5 col-xl-5 " type="text" placeholder="Họ (*)"
+                    name="firstName" formControlName="firstName" style="margin-right: auto;">
+                <div class="col-1 name_hidden"></div>
+                <input class="col-xs-6 col-6 col-sm-6 col-md-5 col-lg-6 col-xl-6 " type="text" placeholder="Tên (*)"
+                    name="lastName" formControlName="lastName">
+            </div>
+            <div class="row">
+                <div class="col-6 error">
+                    <div *ngIf="!firstName?.valid && (firstName?.dirty ||firstName?.touched)">
+                        <div [hidden]="!firstName?.errors?.['required']">
+                            <span class="iconify" data-icon="bxs:error-circle"></span>
+                            <p>Vui lòng nhập họ của bạn</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 error">
+                    <div *ngIf="!lastName?.valid && (lastName?.dirty ||lastName?.touched)">
+                        <div [hidden]="!lastName?.errors?.['required']">
+                            <span class="iconify" data-icon="bxs:error-circle"></span>
+                            <p>Vui lòng nhập tên của bạn </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <input type="text" placeholder="Số điện thoại" name="phone" formControlName="phone">
+            <div class="error row col-12">
+                <div *ngIf="!phone?.valid && (phone?.touched)">
+                    <div [hidden]="!phone?.errors?.['pattern']">
+                        <span class="iconify" data-icon="bxs:error-circle"></span>
+                        <p>Định dạng số điện thoại không hợp lệ</p>
+                    </div>
+                </div>
+            </div>
+
+            <input class="" type="text" placeholder="Email (*)" name="email" formControlName="email">
+            <div class="error row col-12">
+                <div *ngIf="!email?.valid && (email?.dirty || email?.touched)">
+                    <div [hidden]="!email?.errors?.['required']">
+                        <span class="iconify" data-icon="bxs:error-circle"></span>
+                        <p>Vui lòng nhập email</p>
+                    </div>
+                </div>
+            </div>
+            <div class="error row col-12">
+                <div *ngIf="!email?.valid && (email?.touched)">
+                    <div [hidden]="!email?.errors?.['email']">
+                        <span class="iconify" data-icon="bxs:error-circle"></span>
+                        <p>Định dạng email không hợp lệ</p>
+                    </div>
+                </div>
+            </div>
+
+            <input type="text" placeholder="Tên tài khoản (*)" name="userName" formControlName="userName">
+            <div class="error row col-12">
+                <div *ngIf="!userName?.valid && (userName?.dirty || userName?.touched)">
+                    <div [hidden]="!userName?.errors?.['required']">
+                        <span class="iconify" data-icon="bxs:error-circle"></span>
+                        <p>Vui lòng nhập tên tài khoản của bạn</p>
+                    </div>
+                </div>
+            </div>
+
+            <input type="password" placeholder="Mật khẩu (*)" name="password" formControlName="password" />
+            <div class=" error row col-12">
+                <div *ngIf="!password?.valid && (password?.dirty || password?.touched)">
+                    <div [hidden]="!password?.errors?.['required']">
+                        <span class="iconify" data-icon="bxs:error-circle"></span>
+                        <p>Vui lòng nhập mật khẩu</p>
+                    </div>
+                </div>
+            </div>
+            <div class="error row col-12">
+                <div *ngIf="!password?.valid && (password?.dirty || password?.touched)">
+                    <div [hidden]="!password?.errors?.['minlength']">
+                        <span class="iconify" data-icon="bxs:error-circle"></span>
+                        <p>Số ký tự tối thiểu của password là 6</p>
+                    </div>
+                </div>
+            </div>
+
+            <input type="password" placeholder="Nhập lại mật khẩu (*)" name="confirmPassword"
+                formControlName="confirmPassword" />
+            <div class=" error row col-12">
+                <div *ngIf="!confirmPassword?.valid && (confirmPassword?.dirty || confirmPassword?.touched)">
+                    <div [hidden]="!confirmPassword?.errors?.['required']">
+                        <span class="iconify" data-icon="bxs:error-circle"></span>
+                        <p>Vui lòng nhập lại mật khẩu để xác nhận</p>
+                    </div>
+                </div>
+            </div>
+            <div class="error row col-12">
+                <div *ngIf="(confirmPassword?.dirty || confirmPassword?.touched)">
+                    <div [hidden]="!confirmPassword?.errors?.['mismatch']">
+                        <span class="iconify" data-icon="bxs:error-circle"></span>
+                        <p>Mật khẩu không khớp</p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-signup" type="submit">
+                ĐĂNG KÝ
+            </button>
+        </form>
+    </div>
+    <div class="login_footer">
+        <div>
+            <span>
+                Bạn đã có tài khoản?
+            </span>
+            <span>
+                <a href="#" routerLink="/auth/login">Đăng nhập ngay</a>
+            </span>
+        </div>
+    </div>
+</div>

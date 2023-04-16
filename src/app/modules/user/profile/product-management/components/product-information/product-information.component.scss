@@ -1,0 +1,144 @@
+/* Main */
+
+/* Silde */
+.slide-left {
+    // background-color: white;
+    height: 450px;
+}
+
+.slide-left .share {
+    // background-color: white;
+    color: #555050;
+    padding: 0 20px;
+}
+
+.slide-left .share .zalo-img{
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.slide-left .share .zalo-img:hover{
+    transform: scale(1.2);
+    transition: 0.2s;
+}
+
+.slide-left .share svg:hover{
+    transform: scale(1.2);
+    transition: 0.2s;
+    cursor: pointer;
+}
+.carousel-item img {
+    object-fit: contain;
+}
+
+.carousel-indicators li {
+    width: 90px;
+}
+
+.carousel-indicators li img {
+    width: auto;
+    object-fit: cover;
+}
+
+.carousel-inner {
+    border-radius: 10px;
+}
+
+.carousel-indicators li img {
+    border-radius: 10px;
+}
+
+.detail-info {
+    // box-shadow: 1px 2px 9px 1px rgba(0, 0, 0, 0.25);
+    // border-radius: 5px;
+    padding: 40px 0 45px 0;
+}
+
+.detail-info .info button {
+    background: #44609F;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 400;
+    font-size: 16px;
+    margin-top: 25px;
+    height: 35px;
+}
+
+.detail-info .info h6 {
+    font-weight: 550;
+    font-size: 18px;
+    line-height: 23px;
+    color: #44609F;
+}
+
+.favourited {
+    color: red !important;
+}
+
+.notFavourited {
+    color: #dfd9d9;
+}
+
+
+// .heart:hover {
+//     transform: scale(1.15);
+//     transition: all 0.5s;
+// }
+
+.detail-info .info .other-info div {
+    padding: 10px 0px;
+}
+
+.detail-info .info .other-info .iconify {
+    margin-right: 20px;
+}
+
+.detail-info .info span {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #555050;
+}
+
+.detail-info .info .submitBtn {
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 0;
+    height: 40px;
+    vertical-align: middle;
+    margin-top: 75px;
+}
+
+.detail-info .info .submitBtn:hover .exchange-logo {
+    transform: rotate(180deg);
+    transition: 0.4s all;
+}
+
+.detail-info .info .exchange-logo {
+    height: 30px;
+    transition: 0.4s all;
+}
+
+.share-to {
+    cursor: pointer;
+    display: inline;
+}
+
+.share-to:hover {
+    transform: scale(1.05);
+    transition: all 0.1s;
+}
+@media screen and (max-width: 997px) {
+    .info {
+        margin-top: 40px;
+    }
+}
+
+@media screen and (max-width: 1198px) {
+    .share {
+        padding: 0 !important;
+    }
+}

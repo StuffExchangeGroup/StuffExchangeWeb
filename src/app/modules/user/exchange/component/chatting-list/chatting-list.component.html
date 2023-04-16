@@ -1,0 +1,22 @@
+<div class="chatting-list">
+    <div *ngFor="let chat_list of chat_lists; let i = index" class="item row" (click)="selectConversation(chat_list)">
+        <div class="col-2 avatar">
+            <img *ngIf="currentUserUID !== chat_list.exchangeProduct.uid" src="{{chat_list.exchangeProduct.thumbnail}}">
+
+            <img *ngIf="currentUserUID === chat_list.exchangeProduct.uid" src="{{chat_list.ownerProduct.thumbnail}}">
+        </div>
+        <div class="col-8 information">
+            <p *ngIf="currentUserUID !== chat_list.exchangeProduct.uid" class="username">
+                {{chat_list.exchangeProduct.username}} - {{chat_list.exchangeProduct.productName}}
+            </p>
+
+            <p *ngIf="currentUserUID === chat_list.exchangeProduct.uid" class="username">
+                {{chat_list.ownerProduct.username}} - {{chat_list.ownerProduct.productName}}
+            </p>
+            <p *ngIf="chat_list.lastMessage" class="final-message">{{chat_list.lastMessage.message}}</p>
+        </div>
+        <div class="col-2 date">
+            <p *ngIf="lastMessage">{{convertDate(lastMessage[0].timestamp)}}</p>
+        </div>
+    </div>
+</div>

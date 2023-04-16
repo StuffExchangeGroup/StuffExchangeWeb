@@ -1,0 +1,43 @@
+<form [formGroup]="profileUpdateForm">
+    <div class="row">
+        <label class="col-4">Họ</label>
+        <input type="text" class="col-8 effect-1" formControlName="firstName" placeholder="Nhập họ">
+    </div>
+    <div class="row error" *ngIf="!firstName?.valid && (firstName?.dirty || firstName?.touched)">
+        <div class="col-4"></div>
+        <div class="col-8">
+            <span class="iconify" data-icon="bxs:error-circle"></span>
+            <p>Hãy nhập họ của bạn</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <label class="col-4">Tên</label>
+        <input type="text" class="col-8 effect-1" formControlName="lastName" placeholder="Nhập tên">
+    </div>
+    <div class="row error" *ngIf="!lastName?.valid && (lastName?.dirty || lastName?.touched)">
+        <div class="col-4"></div>
+        <div class="col-8">
+            <span class="iconify" data-icon="bxs:error-circle"></span>
+            <p>Hãy nhập tên của bạn</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <label class="col-4">Ngày sinh</label>
+        <!-- <input type="date" class="col-8 effect-1"> -->
+        <input type="text" placeholder="Chọn ngày sinh" class="col-8 effect-1" bsDatepicker
+            [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY', containerClass:'theme-blue' }" formControlName="dob">
+    </div>
+    <!-- <div class="row error" *ngIf="!dob?.valid && (dob?.dirty || dob?.touched)">
+        <div class="col-4"></div>
+        <div class="col-8">
+            <span class="iconify" data-icon="bxs:error-circle"></span>
+            <p>Hãy chọn ngày sinh của bạn</p>
+        </div>
+    </div> -->
+
+    <div class="button">
+        <button type="button" class="btn btn-save" (click)="updateProfile()">Lưu thay đổi</button>
+    </div>
+</form>

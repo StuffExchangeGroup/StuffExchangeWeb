@@ -1,0 +1,29 @@
+<!-- Confirm form -->
+<div class="confirm-form">
+    <div class="header">
+        <div>
+            <p class="title">XÁC THỰC EMAIL</p>
+            <p class="message">Mã OTP đã được gửi đến email của bạn, hãy kiểm tra và xác thực ngay</p>
+        </div>
+        <img src="../../../../../assets/img/web/ForgotPassword/ConfirmEmail.jpg" alt="">
+    </div>
+    <div class="form">
+        <form [formGroup]="confirmForm" class="row">
+            <input type="text" class="col-8" placeholder="OTP" maxlength="4" formControlName="otp">
+            <button class="btn col-3" (click)="onSubmit()">Xác thực</button>
+        </form>
+        <div class="error" *ngIf="!otp?.valid && (otp?.dirty || otp?.touched)">
+            <div [hidden]="!otp?.errors?.['required']">
+                <span class="iconify" data-icon="bxs:error-circle"></span>
+                <p>Hãy nhập mã OTP của bạn</p>
+            </div>
+            <div [hidden]="!otp?.errors?.['pattern']">
+                <span class="iconify" data-icon="bxs:error-circle"></span>
+                <p>Mã OTP không đúng định dạng</p>
+            </div>
+        </div>
+        <div class="resend-otp">
+            <p>Bạn chưa nhận được mã OTP ? <a role="button" (click)="onResendOTP()">Gửi lại</a></p>
+        </div>
+    </div>
+</div>

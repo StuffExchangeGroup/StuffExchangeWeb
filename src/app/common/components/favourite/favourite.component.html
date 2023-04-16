@@ -1,0 +1,8 @@
+<button [disabled]="favouriting" (click)="toggleFavourite(product!.id, belongTo!)"
+    id="card-{{product?.id}}-{{belongTo}}" [ngClass]="product?.isFavorite ? 'favourited' : ''"
+    class="heart notFavourited">
+    <img [ngStyle]="{'display': favouriting ? 'block' : 'none'}" height="50%" width="50%"
+        style="position: absolute; right: 8.5px;top: 6px;" src="../../../../../../assets/img/web/isLoading.gif" alt="">
+    <span class="iconify " data-icon="ant-design:heart-filled" data-width="25" data-height="25">
+    </span>
+</button>

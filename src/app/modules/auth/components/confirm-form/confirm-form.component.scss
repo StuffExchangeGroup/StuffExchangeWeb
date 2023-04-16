@@ -1,0 +1,131 @@
+
+// confirm form css
+.form-confirm{
+    /* height: 300px; */
+    box-shadow: 2px 4px 6px 4px rgba(0, 0, 0, 0.25);
+    background: white;
+    border-radius: 15px;
+}
+
+.form-confirm .wrapper{
+    height: 100%;
+    width: 100%;
+    padding: 30px 15%;
+}
+    
+.form-confirm .mail-logo .logo{
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+}
+.form-confirm .mail-logo .logo img{
+    height: 200px;
+    margin: 0 auto;
+}
+
+.form-confirm .content{
+    width: 100%;
+    margin-top: 20px;
+}
+.form-confirm .content .introduce{
+    width: 100%;
+}
+.form-confirm .content .introduce .txt-confirm{
+    text-align: center;
+    color: #44609F;
+    font-size: 25px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.form-confirm .content .introduce .txt-intro{
+    color: #848282;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.form-confirm .content .confirm-form{
+    margin-top: 20px;
+}
+.form-confirm .content .confirm-form input{
+    width: 100%;
+    border: 1px solid #AFAFAF;
+    box-sizing: border-box;
+    border-radius: 30px;
+    padding: 5px 15px;
+    margin: 5px 0;
+    font-size: 18px;
+    font-style: normal;
+    outline: none;
+    text-align: center;
+    color: #44609F;
+    font-weight: 500;
+}
+
+.form-confirm .content .confirm-form input::placeholder{
+    color: #979595;
+    font-weight: 500;
+}
+
+.form-confirm .content .confirm-form button{
+    width: 100%;
+    border-radius: 30px;
+    background-color:#44609F;
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 5px 15px;
+    outline: none;
+    margin-top: 10px;
+}
+.form-confirm .content .confirm-form div.error{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.form-confirm .content .confirm-form div.error p{
+    color: red;
+    font-size: 13px;
+    font-weight: 400;
+    margin: 0;
+    display: inline;
+    margin-left: 2px;
+}
+
+.form-confirm .content .confirm-form div.error svg{
+    color: red;
+    font-size: 20px;
+}
+
+.form-confirm .content .confirm-form .alert{
+    padding: 5px 15px;
+}
+
+.form-confirm .content .confirm-form .alert span.message{
+    font-size: 16px;
+}
+
+.form-confirm .content .confirm-form .alert svg{
+    font-size: 35px;
+    margin-right: 2px;
+}
+
+.form_signup .alert svg{
+    font-size: 35px;
+    margin-right: 2px;
+}
+
+.form-confirm .resend-otp{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.form-confirm .resend-otp p{
+    font-weight: 400;
+}
+
+.form-confirm .resend-otp a{
+    color: #5a7ac6;
+    font-weight: 400;
+}

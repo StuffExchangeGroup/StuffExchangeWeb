@@ -1,0 +1,25 @@
+<div class="container mt-5">
+    <div class="row wrapper">
+        <div class="col-lg-5 col-md-5 col-sm-12">
+            <app-my-exchange (currentProductId)="getCurrentExchangeId($event)"></app-my-exchange>
+        </div>
+        <section class="col-lg-7 col-md-7 col-sm-12 detail-item-swap" fxLayout="column" fxFlexAlign="stretch">
+            <mat-tab-group [selectedIndex]="(indexTab)" (selectedTabChange)="onSelectedTab($event)"
+                mat-align-tabs="center">
+                <mat-tab label="Chi tiết trao đổi" class="lablefont">
+                    <div class="content-row">
+                        <app-detail-item-exchange [currentProductId]="currentProductId"
+                            (detailExchange)="startConversationFirebase($event)"></app-detail-item-exchange>
+                        <!-- <app-chatting-layout [currentProductId]="currentProductId"></app-chatting-layout> -->
+                    </div>
+                </mat-tab>
+                <mat-tab label="Nhắn tin" class="lablefont">
+                    <div>
+                        <app-chatting-layout [isReloadChat]="isReloadChat" [currentProductId]="currentProductId">
+                        </app-chatting-layout>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+        </section>
+    </div>
+</div>

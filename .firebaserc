@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "notification-69f68": {
+      "hosting": {
+        "swap-now-frontend": [
+          "notification-69f68"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "notification-69f68"
+  }
+}

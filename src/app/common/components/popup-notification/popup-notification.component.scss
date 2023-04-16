@@ -1,0 +1,73 @@
+.pop-up-notification {
+    position: relative;
+    height: 350px;
+    width: 370px;
+    /* margin: 0 auto; */
+    background: #FFFFFF;
+    box-shadow: 3.4234px 3.4234px 11.4113px rgba(0, 0, 0, 0.25), -3.4234px -3.4234px 11.4113px rgba(0, 0, 0, 0.25);
+    border-radius: 11px;
+}
+
+.pop-up-notification .content {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.pop-up-notification .content .title h2 {
+    color: #44609f;
+    font-size: 28px;
+    font-weight: 500;
+}
+
+.pop-up-notification .content .content-message p {
+    color: rgb(104, 102, 102);
+    font-size: 18px;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.confirm .confirm-accept {
+    padding: 0 20px;
+    height: 37px;
+    background-color: #44609F;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.confirm .confirm-accept p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 300;
+    font-family: 'Kanit', sans-serif;
+}
+
+.confirm .confirm-accept:hover .exchange-logo {
+    transform: rotate(180deg);
+    transition: 0.4s all;
+}
+
+.confirm .exchange-logo {
+    height: 30px;
+    transition: 0.4s all;
+    height: 20px;
+    width: 20px;
+    margin-left: 5px;
+}
+
+.confirm .confirm-cancel p {
+    color: #44609F;
+    font-size: 16px;
+    padding: 0 20px;
+    text-align: center;
+    margin-top: 10px;
+    cursor: pointer;
+}

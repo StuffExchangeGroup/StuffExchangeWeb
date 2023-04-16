@@ -1,0 +1,47 @@
+<!-- Phone mail pass -->
+<div class="phone-email-pass">
+    <div>
+        <div class="title">Số điện thoại</div>
+        <div class="d-flex justify-content-between">
+            <div class="d-inline">
+                <span class="iconify" data-icon="akar-icons:phone"></span>
+                <span class="infor" *ngIf="user?.phone; else elsePhone"> {{user?.phone}}</span>
+                <ng-template #elsePhone>
+                    <span class="infor"><i> Chưa cập nhật</i></span>
+                </ng-template>
+            </div>
+
+            <div class="d-inline" (click)="onEdit('update-phone')">
+                <span class="edit iconify" data-icon="bx:edit"></span>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="title">Email</div>
+        <div class="d-flex justify-content-between">
+            <div class="d-inline">
+                <span class="iconify" data-icon="ci:mail"></span>
+                <span class="infor"> {{user?.email}}</span>
+            </div>
+
+            <div class="d-inline" value="update-email" (click)="onEdit('update-email')">
+                <span class="edit iconify d-block" data-icon="bx:edit"></span>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="title">Mật khẩu</div>
+        <div class="d-flex justify-content-between">
+            <div class="d-inline">
+                <span class="iconify" data-icon="wpf:password1"></span>
+                <span class="infor"> Thay đổi mật khẩu</span>
+            </div>
+
+            <div class="d-inline" (click)="onEdit('update-password')">
+                <span class="edit iconify" data-icon="bx:edit"></span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<!-- Change email form -->
+<div class="change-email">
+    <div class="content">
+        <form [formGroup]="emailUpdateForm">
+            <label class="d-inline">Nhập email mới</label>
+            <br>
+            <div class="error" *ngIf="errorMessage">
+                <span class="iconify" data-icon="bxs:error-circle"></span>
+                <p>{{errorMessage}}</p>
+            </div>
+            <div class="icon-mail">
+                <span class="iconify" data-icon="ci:mail"></span>
+                <input type="text" placeholder="Email" formControlName="email">
+            </div>
+            <div class="error" *ngIf="!email?.valid && (email?.dirty || email?.touched)">
+                <div [hidden]="!email?.errors?.['required']">
+                    <span class="iconify" data-icon="bxs:error-circle"></span>
+                    <p>Hãy nhập email của bạn</p>
+                </div>
+                <div [hidden]="!email?.errors?.['email']">
+                    <span class="iconify" data-icon="bxs:error-circle"></span>
+                    <p>Email không đúng định dạng</p>
+                </div>
+            </div>
+            <br>
+            <div class="d-inline button">
+                <button type="button" class="btn btn-save-email" (click)="onContinue()">Tiếp tục</button>
+                <button type="button" class="btn btn-cancel" (click)="onCancel()">Hủy</button>
+            </div>
+        </form>
+    </div>
+</div>

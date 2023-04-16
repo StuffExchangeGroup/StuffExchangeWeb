@@ -1,0 +1,50 @@
+<div class="form-confirm">
+    <div class="wrapper">
+        <ngx-spinner [fullScreen]="false" bdColor="rgb(213, 213, 213, 0.5)" size="medium" color="#44609F"
+            type="ball-scale-multiple">
+        </ngx-spinner>
+        <div class=" mail-logo">
+            <div class="logo">
+                <img src="../../../../../assets/img/web/Signup/confirmOTP.png">
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="introduce">
+                <p class="txt-confirm">XÁC THỰC TÀI KHOẢN</p>
+                <p class="txt-intro">Mã OTP đã được gửi đến email của bạn, hãy kiểm tra và xác thực tài
+                    khoản ngay</p>
+            </div>
+            <div class="confirm-form">
+                <form [formGroup]="confirmForm" (ngSubmit)="onSubmit()">
+                    <div class="alert alert-danger alert-dismissible fade show" *ngIf="messageError">
+                        <span class="iconify" data-icon="bx:error-circle"></span>
+                        <span class="message">{{messageError}}</span>
+                    </div>
+                    <input type="text" placeholder="Mã OTP" autofocus name="otp" formControlName="otp" />
+                    <div class="error">
+                        <div *ngIf="!otp?.valid && (otp?.dirty ||otp?.touched)">
+                            <div [hidden]="!otp?.errors?.['required']">
+                                <span class="iconify" data-icon="bxs:error-circle"></span>
+                                <p>Vui lòng nhập mã OTP để xác thực</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="error">
+                        <div *ngIf="!otp?.valid">
+                            <div [hidden]="!otp?.errors?.['pattern']">
+                                <span class="iconify" data-icon="bxs:error-circle"></span>
+                                <p>Mã OTP gồm 4 chữ số</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn" type="submit">XÁC THỰC</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="resend-otp">
+            <p>Bạn chưa nhận được mã OTP? <a role="button" (click)="onResendOTP()">Gửi lại</a></p>
+        </div>
+    </div>
+</div>

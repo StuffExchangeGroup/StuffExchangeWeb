@@ -1,0 +1,84 @@
+* {
+    font-family: 'Kanit', sans-serif;
+}
+
+/* end sidebar my-item */
+.container {
+    min-height: 550px;
+}
+
+/* header */
+.detail-item-swap {
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+    border-radius: 10px;
+    padding: 0;
+    background-color: white;
+}
+
+.detail-item-swap div.content-row {
+    height: 500px;
+    overflow-y: scroll;
+}
+
+/* end header */
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #B8B8B8;
+    border-radius: 10px;
+}
+
+
+.detail-swap-header .header-title {
+    position: relative;
+}
+
+.detail-swap-header .active {
+    border-bottom: 3px solid #44609F;
+}
+
+.mat-tab-label .mat-tab-label-content {
+    color: #3D5FAC;
+    font-size: 1rem;
+    line-height: 38px;
+    font-family: 'Kanit', sans-serif !important;
+    position: relative;
+}
+
+// .mat-tab-label .mat-tab-label-content::after {
+//     content: " 5";
+//     position: absolute;
+//     top: -10px;
+//     color: red;
+// }
+
+.mat-tab-label-active.mat-tab-label {
+    opacity: 1;
+}
+
+.detail-swap-header .header-title span {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    top: -10px;
+    right: -20px;
+    color: white;
+    background-color: red;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 12px;
+}

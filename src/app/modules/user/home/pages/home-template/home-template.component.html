@@ -1,0 +1,27 @@
+<div class="main">
+    <ngx-spinner [fullScreen]="true" bdColor="rgb(213, 213, 213, 0.5)" size="medium" color="#ffff"
+        type="square-jelly-box">
+        <p style="color: #44609F; font-size: 16px; font-weight: 600;"></p>
+    </ngx-spinner>
+    <!-- introduce -->
+    <div class="bg_introduce container-fluid p-0 mb-5">
+        <!-- <img src="../assets/img/web/home/bg_introduce.png" alt=""
+            style="width:100% ; object-fit: cover; visibility: hidden;"> -->
+        <div class="introduce_content">
+            <h3>Trao đổ đồ cũ cùng</h3>
+            <h1>STUFF EXCHANGE</h1>
+            <h3>Biến tất cả những thứ xung quanh bạn trở nên có giá trị</h3>
+        </div>
+    </div>
+
+    <!-- Category -->
+    <app-category (isCategoryLoading)="isCategoryLoading($event)"></app-category>
+
+    <!-- Top trending -->
+    <app-trending (isTrendingLoading)="isTrendingLoading($event)"></app-trending>
+
+    <!-- Newest -->
+    <app-newest (isNewestLoading)="isNewestLoading($event)"></app-newest>
+
+
+</div>

@@ -1,0 +1,23 @@
+<div class="pop-up-notification">
+    <div class="content">
+        <div class="title">
+            <h2>Thông báo</h2>
+        </div>
+        <div>
+            <span class="iconify" data-icon="clarity:notification-solid" style="color: #44609f;" data-width="80"
+                data-height="80"></span>
+        </div>
+        <div class="content-message">
+            <p>{{notification.content}}</p>
+        </div>
+        <div class="confirm">
+            <button (click)="onAccept()" class="w-100 confirm-accept btn">
+                <p>Xác nhận </p>
+                <img class="exchange-logo" src="../../../../../../assets/img/logo/logo_wy.png" alt="">
+            </button>
+            <div class="confirm-cancel">
+                <p (click)="onCancel()">Hủy</p>
+            </div>
+        </div>
+    </div>
+</div>

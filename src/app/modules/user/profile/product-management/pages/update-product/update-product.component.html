@@ -1,0 +1,179 @@
+<div class="post-product">
+    <ngx-spinner [fullScreen]="false" bdColor="rgb(213, 213, 213, 0.5)" size="medium" color="#44609F"
+        type="ball-scale-multiple">
+    </ngx-spinner>
+    <div class="post-header row">
+        <div class="header-top col-12 d-flex align-items-center justify-content-center h-100">
+            <h5 class="title">Đăng sản phẩm</h5>
+        </div>
+    </div>
+    <form [formGroup]="postProductForm" (ngSubmit)="OnSubmit()" class="row content">
+        <div class=" col-lg-8 col-md-12 col-sm-12 col-12">
+            <div class="type-information w-100">
+                <h6 for="">Tên sản phẩm (*)</h6>
+                <input formControlName="title" name="title" class="type-input w-100 cursor" type="text"
+                    placeholder="Nhập tên sản phẩm">
+                <div *ngIf="!title?.valid && (title?.dirty ||title?.touched)">
+                    <div class="error-message d-flex align-content-center" [hidden]="!title?.errors?.['required']">
+                        <span class="iconify" data-icon="bxs:error-circle"></span>
+                        <p>Vui lòng nhập tên sản phẩm </p>
+                    </div>
+                </div>
+            </div>
+            <div class="type-information w-100 d-flex">
+                <div class="w-50 pr-1">
+                    <h6 for="">Danh mục (*)</h6>
+                    <select formControlName="categoryId" name="categoryId" class="type-input w-100 cursor" type="text">
+                        <option value="" disabled selected>Chọn danh mục</option>
+                        <option *ngFor="let category of categories" value="{{category.id}}">
+                            {{category.name}}
+                        </option>
+                    </select>
+                    <div *ngIf="!categoryId?.valid && (categoryId?.dirty ||categoryId?.touched)">
+                        <div class="error-message d-flex align-content-center"
+                            [hidden]="!categoryId?.errors?.['required']">
+                            <span class="iconify" data-icon="bxs:error-circle"></span>
+                            <p>Vui lòng nhập chọn danh mục</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-50 pl-1">
+                    <h6 for="">Tình trạng (*)</h6>
+                    <select formControlName="productCondition" name="productCondition" class="type-input w-100 cursor"
+                        type="text">
+                        <option value="" disabled selected>Chọn tình trạng</option>
+                        <option value="NEW">Mới</option>
+                        <option value="LIKENEW">Hàng 99%</option>
+                        <option value="USED">Đã sử dụng</option>
+                    </select>
+                    <div *ngIf="!productCondition?.valid && (productCondition?.dirty ||productCondition?.touched)">
+                        <div class="error-message d-flex align-content-center"
+                            [hidden]="!productCondition?.errors?.['required']">
+                            <span class="iconify" data-icon="bxs:error-circle"></span>
+                            <p>Vui lòng chọn tình trạng </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="type-information w-100 d-flex">
+                <div class="w-50 pr-1">
+                    <h6 for="">Tỉnh/Thành (*)</h6>
+                    <select (change)="onSelectProvince($event)" formControlName="stateId" name="stateId"
+                        class="type-input w-100 cursor" type="select">
+                        <option value="" disabled selected>Chọn tỉnh thành</option>
+                        <option *ngFor="let province of provinces" value="{{province.id}}">
+                            {{province.name}}
+                        </option>
+                    </select>
+                    <div *ngIf="!stateId?.valid && (stateId?.dirty ||stateId?.touched)">
+                        <div class="error-message d-flex align-content-center"
+                            [hidden]="!stateId?.errors?.['required']">
+                            <span class="iconify" data-icon="bxs:error-circle"></span>
+                            <p>Vui lòng chọn tỉnh thành </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-50 pl-1">
+                    <h6 for="">Quận/Huyện (*)</h6>
+                    <select formControlName="cityId" name="cityId" class="type-input w-100 cursor" type="select">
+                        <option value="" disabled selected>Chọn quận</option>
+                        <option *ngFor="let city of cities" value="{{city.id}}">
+                            {{city.name}}
+                        </option>
+                    </select>
+                    <div *ngIf="!cityId?.valid && (cityId?.dirty ||cityId?.touched)">
+                        <div class="error-message d-flex align-content-center" [hidden]="!cityId?.errors?.['required']">
+                            <span class="iconify" data-icon="bxs:error-circle"></span>
+                            <p>Vui lòng chọn quận huyện </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="type-information w-100 ">
+                <div class="w-100 ">
+                    <h6 for="">Trạng thái (*)</h6>
+                    <select formControlName="status" name="status" class="type-input w-100 cursor" type="select">
+                        <option value="" disabled selected>Chọn trạng thái</option>
+                        <option value="AVAILABLE">Sẵn có</option>
+                        <option value="SWAPPED">Đã trao đổi</option>
+                    </select>
+                </div>
+            </div>
+            <div class="type-information w-100 d-flex purpose">
+                <h6 for="" class="mr-5">Mục đích (*)</h6>
+                <div class="d-flex align-items-center mr-5">
+                    <input formControlName="purposeIds" name="purposeIds" class=" mr-2 cursor" type="radio" value="2" />
+                    <span style="font-weight: 300;">Trao đổi</span>
+                </div>
+                <div class="d-flex align-items-center mr-3">
+                    <input formControlName="purposeIds" name="purposeIds" class=" mr-2 cursor" type="radio" value="4" />
+                    <span style="font-weight: 300;">Tặng</span>
+                </div>
+                <div *ngIf="!purposeIds?.valid && (purposeIds?.dirty ||purposeIds?.touched)"
+                    class="error-message d-flex align-content-center">
+                    <div [hidden]="!purposeIds?.errors?.['required']">
+                        <span class="iconify" data-icon="bxs:error-circle"></span>
+                        <p>Vui lòng chọn mục đích </p>
+                    </div>
+                </div>
+            </div>
+            <div class="type-information w-100">
+                <h6 for="">Mô tả (*)</h6>
+                <textarea formControlName="description" name="description" rows="3" cols="50" class="type-input w-100"
+                    type="text" placeholder="Kích thước, màu sắc, thời gian đã sử dụng,..."></textarea>
+                <div *ngIf="!description?.valid && (description?.dirty ||description?.touched)">
+                    <div class="error-message d-flex align-content-center"
+                        [hidden]="!description?.errors?.['required']">
+                        <span class="iconify" data-icon="bxs:error-circle"></span>
+                        <p>Vui lòng mô tả sản phẩm </p>
+                    </div>
+                </div>
+            </div>
+            <div class="type-information w-100">
+                <h6 for="">Chú ý (*)</h6>
+                <textarea formControlName="notice" name="notice" rows="3" cols="50" class="type-input w-100" type="text"
+                    placeholder="Đồ dùng ưu tiên đổi.."></textarea>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-12 col-sm-12 col-12 content-right">
+            <div class="upload-file w-100">
+                <h6 for="">Hình ảnh sản phẩm (*)</h6>
+                <div class="choose-file">
+                    <div class="child-choose-file">
+                        <label class="cursor" for="files">
+                            <span class="iconify ml-2" data-icon="oi:data-transfer-upload" style="color: #7d7d7d;"
+                                data-width="40" data-height="40"></span>
+                        </label>
+                        <label class="cursor" for="files">
+                            <p>Chọn hình ảnh</p>
+                        </label>
+                        <input id="files" type="file" placeholder=" " value="submit" (change)="onSelectFile($event)"
+                            accept="image/*" multiple maxlength="5" style="display: none;">
+                    </div>
+                </div>
+            </div>
+            <div class="preview-file w-100">
+                <div *ngFor="let imageLink of imageLinks; let indexImage = index; trackBy: trackId"
+                    class="preview-file-child">
+                    <div class="image">
+                        <img width="60px" height="70px" [src]="imageLink"><br>
+                        <div (click)="onRemoveFile(indexImage)" class="close-icon cursor">
+                            <span class="iconify" data-icon="ep:circle-close-filled" style="color: #616161;"
+                                data-width="15" data-height="15"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h6 class="text-center mt-2" for="">Tổng hình ảnh
+                <span class="total-file">{{numberOfFile}}/5</span>
+            </h6>
+            <div class="content-right-submit">
+                <button type="submit" class="w-100 submitBtn btn">
+                    <p>Cập nhật ngay </p>
+                    <img class="exchange-logo" src="../../../../assets/img/logo/logo_wy.png" alt="">
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

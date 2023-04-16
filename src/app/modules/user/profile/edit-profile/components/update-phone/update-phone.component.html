@@ -1,0 +1,32 @@
+<!-- Change phone number form -->
+<div class="change-phone">
+    <div class="content">
+        <form [formGroup]="phoneUpdateForm">
+            <label class="d-inline">Nhập số điện thoại mới</label>
+            <br>
+            <div class="error" *ngIf="messageError">
+                <span class="iconify" data-icon="bxs:error-circle"></span>
+                <p>{{messageError}}</p>
+            </div>
+            <div class="icon-phone">
+                <span class="iconify" data-icon="akar-icons:phone"></span>
+                <input type="number" placeholder="Số điện thoại" formControlName="phone">
+            </div>
+            <div class="error" *ngIf="!phone?.valid && (phone?.dirty || phone?.touched)">
+                <div [hidden]="!phone?.errors?.['required']">
+                    <span class="iconify" data-icon="bxs:error-circle"></span>
+                    <p>Hãy nhập số điện thoại của bạn</p>
+                </div>
+                <div [hidden]="!phone?.errors?.['pattern']">
+                    <span class="iconify" data-icon="bxs:error-circle"></span>
+                    <p>Số điện thoại không hợp lệ</p>
+                </div>
+            </div>
+            <br>
+            <div class="d-inline button">
+                <button class="btn btn-save-phone" (click)="onUpdatePhone()">Cập nhật</button>
+                <button class="btn btn-cancel" (click)="onCancel()">Hủy</button>
+            </div>
+        </form>
+    </div>
+</div>

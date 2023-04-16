@@ -1,0 +1,22 @@
+<div class="container-fluid mt-6">
+    <!-- Table -->
+    <div class="row">
+        <div class="col">
+            <div class="card shadow">
+                <div class="card-header border-0">
+                    <h3 class="mb-0">
+                        List User 
+                        <span class="icon-button" (click)="addUser()">
+                           <i class="fas fa-plus"></i>
+                        </span>
+                    </h3>
+                </div>
+                <app-user-table [listUser]="(listUser$ | async) || undefined"
+                                [showLoadingUser]="showLoadingUser"
+                                (editUserEvent)="editUser($event)"
+                                (deleteUserEvent)="deleteUser($event)">
+                </app-user-table>
+            </div>
+        </div>
+    </div>
+</div>

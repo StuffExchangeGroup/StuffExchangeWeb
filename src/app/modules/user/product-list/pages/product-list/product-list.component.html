@@ -1,0 +1,19 @@
+<div class="container">
+    <!-- sort component -->
+    <app-sort *ngIf="products" (sortChangeEvent)="sortChangeHandler($event)" [numberOfProduct]="paginate.totalItems"
+        #sort>
+    </app-sort>
+
+    <div class="main row">
+        <!-- filter component -->
+        <app-filter class="col-md-3 col-sm-12 filter-session" (categoryChangeEvent)="categoryChangeHandler($event)"
+            (cityChangeEvent)="cityChangeHandler($event)" (conditionChangeEvent)="conditionChangeHandler($event)"
+            (purposeChangeEvent)="purposeChangeHandler($event)" (filterResetEvent)="filterResetHandler()"
+            [selectedCategoryId]="selectedCategoryId">
+        </app-filter>
+
+        <!-- products component -->
+        <app-products class="col-md-9 col-sm-12" [products]="products" [paginate]="paginate"
+            (pageChangeEvent)="pageChangeHandler($event)" [showLoadingProducts]="showLoadingProducts"> </app-products>
+    </div>
+</div>

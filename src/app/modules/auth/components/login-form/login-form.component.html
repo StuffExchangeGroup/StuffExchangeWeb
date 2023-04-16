@@ -1,0 +1,68 @@
+<div class="container main">
+    <div class="row">
+        <div class="col-lg-6 col-md-5 bg_image">
+            <img src="./assets/img/web/Signin/login_image_1.png" alt="" width="100%" height="100%">
+        </div>
+        <div class="col-1"></div>
+        <div class="col-lg-5 col-md-6 col-12 p-0">
+            <div class="form_signin">
+                <ngx-spinner [fullScreen]="false" bdColor="rgb(213, 213, 213, 0.5)" size="medium" color="#44609F"
+                    type="ball-scale-multiple">
+                </ngx-spinner>
+                <div class="header">
+                    <div>
+                        <h3>ĐĂNG NHẬP</h3>
+                        <span>
+                            Chào mừng bạn trở lại
+                        </span>
+                    </div>
+                    <img src="./assets/img/web/Signin/welcome.png" alt="">
+                </div>
+                <form [formGroup]="loginForm" (ngSubmit)="submitLogin()" role="form" class="main_form">
+                    <div>
+                        <input formControlName="username" class="form-control" type="text"
+                            placeholder="Nhập tên tài khoản*">
+                        <p class="invalid-filed-feedback" *ngIf="username?.errors?.['required'] && username?.touched">
+                            Tên tài khoản không được trống
+                        </p>
+                    </div>
+                    <div>
+                        <input class="form-control" formControlName="password" type="password"
+                            placeholder="Nhập mật khẩu*">
+                        <p class="invalid-filed-feedback" *ngIf="password?.errors?.['required'] && password?.touched">
+                            Mật khẩu không được trống
+                        </p>
+                        <p class="invalid-filed-feedback" *ngIf="password?.errors?.['minlength']">
+                            Mật khẩu phải ít nhất 6 ký tự
+                        </p>
+                    </div>
+                    <p class="invalid-filed-feedback text-center" *ngIf="messageError">
+                        {{messageError}}
+                    </p>
+                    <button class="btn submit_btn overflow-hidden" type="submit">
+                        ĐĂNG NHẬP
+                    </button>
+                </form>
+                <div class="login_footer">
+                    <a class="Forgot_passowrd_text" [routerLink]="['/auth/forgot-password']">
+                        Bạn quên mật khẩu ?
+                    </a>
+                    <span class="using_text">
+                        Hoặc sử dụng
+                    </span>
+                    <div class="d-flex mb-3 w-25 justify-content-between">
+                        <img src="./assets/img/web/Signin/facebook.png" alt="">
+                        <img src="./assets/img/web/Signin/gg.png" alt="">
+                    </div>
+                    <div>
+                        <span>
+                            Chưa có tài khoản?
+                        </span>
+                        <span>
+                            <a [routerLink]="['/auth/sign-up']" href="#">Đăng ký ngay</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End main -->

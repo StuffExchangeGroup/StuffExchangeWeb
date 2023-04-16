@@ -1,0 +1,39 @@
+<!-- Category -->
+<div class="bg_category1 container-fluid p-0 mb-5">
+    <div class="container category_title">
+        <p>Danh mục</p>
+    </div>
+
+    <div class="category_content1">
+        <div class="container">
+            <!-- <img src="../../image/home/Ellipse 125.png" alt="" style="width: 100%"> -->
+            <div class="category-list1 row">
+                <div class="col-lg-6 col-sm-12 col-6">
+                    <div class="row">
+
+                        <div class="category_item1 col-lg-3 col-sm-3 col-12"
+                            *ngFor="let category of categories | slice:0:4">
+                            <a href="" [routerLink]="['/products']" [queryParams]="{categoryIds: category.id}"
+                                routerLinkActive="router-link-active">
+                                <img [src]="category.thumbnail" class="category_img" alt="">
+                                <p>{{category.name}}</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-sm-12 col-6">
+                    <div class="row">
+                        <div class="category_item1 col-lg-3 col-sm-3 col-12"
+                            *ngFor="let category of categories | slice:4:8; trackBy: trackId">
+                            <a href="" [routerLink]="['/products']" [queryParams]="{categoryIds: category.id}">
+                                <img [src]="category.thumbnail" class="category_img" alt="">
+                                <p>{{category.name}}</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

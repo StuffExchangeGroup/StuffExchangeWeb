@@ -1,0 +1,42 @@
+<div *ngIf="roomChat_ && roomChat_.ownerProduct.uid === currentUserUID" class="header">
+    <div class="btn-back" (click)="backToChattingList()">
+        <span class="iconify" data-icon="eva:arrow-back-fill"></span>
+    </div>
+    <img src="{{roomChat_.exchangeProduct.avatarUrl}}" alt="" class="avatar">
+    <p>{{roomChat_.exchangeProduct.username}}</p>
+</div>
+<div *ngIf="roomChat_ && roomChat_.exchangeProduct.uid === currentUserUID" class="header">
+    <div class="btn-back" (click)="backToChattingList()">
+        <span class="iconify" data-icon="eva:arrow-back-fill"></span>
+    </div>
+    <img src="{{roomChat_.ownerProduct.avatarUrl}}" alt="" class="avatar">
+    <p>{{roomChat_.ownerProduct.username}}</p>
+</div>
+
+<div class="messages" id="messages">
+    <div *ngFor="let message of messages; let i = index" class="bubbleWrapper">
+        <div class="inlineContainer" [ngClass]="{'own' : message.userID === currentUserUID}">
+            <img *ngIf="message.userID !== currentUserUID" class="inlineIcon" src="{{exchangerAvatar}}">
+
+            <img *ngIf="message.userID === currentUserUID" class="inlineIcon" src="{{ownerAvatar}}">
+            <div class="otherBubble"
+                [ngClass]="{'otherBubble' : message.userID === currentUserUID, 'ownBubble' : message.userID !== currentUserUID}">
+                {{message.message}}
+            </div>
+        </div>
+        <span [ngClass]="{'own' : message.userID === currentUserUID, 'other' : message.userID !== currentUserUID}">
+            {{getTime(message.timestamp)}}
+        </span>
+    </div>
+</div>
+
+<div class="type-message">
+    <form [formGroup]="messageForm" (ngSubmit)="onSendMessage()" class="content">
+        <input formControlName="message" name="message" placeholder="Nhập tin nhắn" class="input-message" type="text">
+        <button class="send-message">
+            <span class="iconify" data-icon="fluent:send-16-filled" style="color: #44609f;" data-width="25"
+                data-height="25">
+            </span>
+        </button>
+    </form>
+</div>

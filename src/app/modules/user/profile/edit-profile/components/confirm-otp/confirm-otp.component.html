@@ -1,0 +1,36 @@
+<!-- Confirm OTP form -->
+<form [formGroup]="confirmForm">
+    <div class="confirm-otp">
+        <img src="../../../../../../../assets/img/web/Signup/confirmOTP.png" alt="">
+        <!-- <form> -->
+        <div class="title">XÁC THỰC TÀI KHOẢN</div>
+        <div class="detail">Mã OTP đã được gửi đến email của bạn, hãy kiểm tra và xác thực ngay
+        </div>
+        <div class="error" *ngIf="messageError">
+            <span class="iconify" data-icon="bxs:error-circle"></span>
+            <p>{{messageError}}</p>
+        </div>
+        <input type="text" placeholder="OTP" maxlength="4" formControlName="otp">
+
+        <div class="error" *ngIf="!otp?.valid && (otp?.dirty || otp?.touched)">
+            <div [hidden]="!otp?.errors?.['required']">
+                <span class="iconify" data-icon="bxs:error-circle"></span>
+                <p>Hãy nhập mã OTP của bạn</p>
+            </div>
+            <div [hidden]="!otp?.errors?.['pattern']">
+                <span class="iconify" data-icon="bxs:error-circle"></span>
+                <p>Mã OTP không đúng định dạng</p>
+            </div>
+        </div>
+
+        <div class="d-inline button">
+            <button class="btn btn-confirm" (click)="onConfirm()">Xác thực</button>
+            <button class="btn btn-cancel" (click)="onCancel()">Hủy</button>
+        </div>
+
+        <div class="resend-otp">
+            <p>Bạn chưa nhận được mã OTP? <a role="button" (click)="onResendOTP()">Gửi lại</a></p>
+        </div>
+        <!-- </form> -->
+    </div>
+</form>

@@ -1,0 +1,13 @@
+<div class="container main">
+    <div class="row">
+        <div class="col-lg-6 col-md-0 bg_image col-0">
+            <img src="./assets/img/sign-up/signup_image_1.png" alt="" width="100%">
+        </div>
+        <div class="col-lg-6 col-md-12 col-12">
+            <app-signup-form (submitSignUpFormEvent)="submitSignUpHandler($event)" [messageError]=" messageError"
+                [showLoadingSignUp]="showLoadingSignUp">
+            </app-signup-form>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,130 @@
+
+/* filter toggle */
+div.toggle{
+    padding: 0;
+    display: none;
+    cursor: pointer;
+}
+
+.filter-toggle{
+    color: #44609F;
+    font-size: 40px;
+    padding: 0;
+}
+
+/* sidebar */
+.filter{
+    height: 100%;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 0;
+    background-color: white;
+    transition: 0.3s;
+    display: block;
+}
+
+.filter div.filter-header{
+    background-color: #44609F;
+    height: 50px;
+}
+
+.filter div.filter-header span{
+    font-size: larger;
+    font-weight: 500;
+}
+
+.filter div.filter-header svg{
+    font-size: 35px;
+    color: white;
+    margin-left: 5px;
+    margin-top: -5px;
+    // width: 20px;
+}
+
+.filter div.filter-header svg:hover{
+    cursor: pointer;
+    transform: rotate(300deg);
+    transition: 0.5s;
+}
+
+.filter  hr{
+    margin: 0;
+}
+
+.filter .criteria{
+    padding: 15px 20px;
+}
+
+.filter .criteria .title{
+    font-weight: 500;
+    color: #44609F;
+    font-size: 20px;
+}
+
+.filter .criteria .type{
+    margin-bottom: 10px;
+}
+
+.filter .criteria .type input{
+    font-size: 40px;
+    transform: scale(1.5);
+}
+
+.filter .criteria .type input:hover{
+    cursor: pointer;   
+}
+
+.filter .criteria .type .name{
+    margin-left: 20px;
+}
+
+.filter .filter-header span{
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 50px
+}
+/* end sidebar */
+
+
+/* responsive */
+@media screen and (max-width: 992px) and (min-width: 768px) {
+    .filter .criteria .type input{
+        font-size: 40px;
+        transform: scale(1.2);
+    }
+    
+    .filter .criteria .type .name{
+        margin-left: 10px;
+    }
+    
+    .filter .criteria .title{
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    /* filter toggle */
+    div.toggle{
+        padding: 0;
+        display: block;
+        margin-bottom: 5px; 
+    }
+    
+    .filter{
+        display: none;
+        height: auto;
+    }
+    
+    
+}
+
+@media screen and (min-width: 766px){
+    div.toggle{
+        display: none;
+    }
+    .filter{
+        display: block;
+    }
+} 

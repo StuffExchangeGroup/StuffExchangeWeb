@@ -1,0 +1,11 @@
+.main {
+    margin-top: 50px;
+    height: auto;
+    margin-bottom: 50px;
+}
+
+@media only screen and (max-width: 991px) {
+    .bg_image{
+        display: none;
+    }    
+}

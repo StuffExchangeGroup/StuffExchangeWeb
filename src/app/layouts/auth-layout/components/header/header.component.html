@@ -1,0 +1,52 @@
+<div class="container-fluid" id="site-header" [ngClass]="isHeaderHide ? 'hide-header' : 'not-hide-header'">
+    <div class="row mx-2">
+        <div class="logo_img col-xl-2 col-lg-2 col-md-2 col-2  d-lg-block d-xl-block">
+            <a href="../index.html" class="mx-0">
+                <img class="img_logo_header " src="../../../../../assets/img/header/logo_home.png" alt="">
+            </a>
+        </div>
+        <div class="search_bar col-6 col-md-6 col-xl-6 col-lg-6 col-sm-6 mt-2">
+            <div class="container-input input-group mt-3 mb-1">
+                <input type="text" class="form-control" placeholder="Tìm kiếm" aria-label="Username"
+                    aria-describedby="basic-addon1" />
+                <div class="input-group-prepend">
+                    <span class="btn input-group-text bg-white" id="basic-addon1">
+                        <span data-width="20px" class="iconify" data-icon="bx:bx-search-alt-2"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="container_menu_search d-md-block">
+                <ul class="d-flex  p-0 ">
+                    <li class="menu"><a class="text-dark" href="#">Áo</a></li>
+                    <li class="menu"><a class="text-dark" href="#">Đồng hồ</a></li>
+                    <li class="menu"><a class="text-dark" href="">Tai nghe </a></li>
+                    <li class="menu"><a class="text-dark" href="#">Điện thoại</a></li>
+                    <li class="menu"><a class="text-dark" href="#">Đồ gia dụng</a></li>
+                    <li class="menu"><a class="text-dark" href="#">Sách công nghệ</a></li>
+                    <li class="menu"><a class="text-dark" href="#">Túi sách</a></li>
+                </ul>
+            </div>
+        </div>
+        <div
+            class="col-xl-3 col-lg-3 col-md-3 col-5 col-sm-4 col-xs-4 d-flex mt-4 header_group_icon ml-3 justify-content-center align-content-center">
+            <span class="iconify" data-icon="carbon:user-avatar-filled-alt" style="color: #44609f;" data-width="35"
+                data-height="35"></span>
+            <a [routerLink]="['auth/login']" href="" class="btn-login">
+                <span style="color: #44609F; font-weight: 600;">
+                    Đăng nhập</span>
+            </a>
+        </div>
+    </div>
+    <div class="row menu-header">
+        <div class="container_menu_header d-md-block">
+            <ul class="d-flex p-0 h-100 align-items-center my-auto">
+                <li class="menu-list"><a class="item-menu" style="  color: #F9D545;" href="">Trang chủ</a></li>
+                <li class="menu-list"><a class="item-menu" href="#">Sản phẩm</a></li>
+                <li class="menu-list"><a class="item-menu" href="">Liên hệ</a></li>
+                <li class="menu-list"><a class="item-menu" href="#">Về chúng tôi</a></li>
+                <li class="menu-list"><a class="item-menu" href="#">Trợ giúp</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div style="height: 134px;"></div>

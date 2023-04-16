@@ -1,0 +1,47 @@
+<!-- <ngx-spinner [fullScreen]="false" bdColor="rgb(213, 213, 213, 0.8)" size="medium" color="#44609F"
+    type="ball-scale-multiple">
+</ngx-spinner> -->
+<div class="my-item-swap">
+    <div class="my-item-header">
+        <h5 class="my-item-title">Trao đổi gần đây</h5>
+    </div>
+    <div class="my-item-content">
+        <div class="filter-status">
+            <select (change)="filterExchangeByType($event)" class="filter-status-select" name="" id="exchange-filter">
+                <option class="select-option" value="All" selected>Tất cả giao dịch</option>
+                <option class="select-option" value="WAITING">Chờ trao đổi</option>
+                <option class="select-option" value="SWAPPING">Đang trao đổi</option>
+            </select>
+            <span class="iconify" data-icon="bx:filter" style="color: #264b9e;" data-width="35" data-height="35"></span>
+        </div>
+
+        <div *ngIf="myExchanges?.length === 0" class="message"><a [routerLink]="['/products']">Khám sản phẩm
+                để trao đổi</a>
+        </div>
+
+        <ul class="my-item-item">
+            <li (click)="onSelectItemExchange(myExchange.productId)"
+                [ngClass]="{'active my-exchange-active' : myExchange.productId == currentProductId_}"
+                *ngFor="let myExchange of myExchanges; trackBy: trackId " class="item"
+                id="my-exchange-{{myExchange.productId}}">
+                <img class="thumbnail" src="{{myExchange.avatarProduct}}" alt="">
+                <div class="content">
+                    <p class="product-name">{{myExchange.productName}}</p>
+                    <div class="d-flex status">
+                        <span class="iconify mr-1" data-icon="ic:baseline-swap-horizontal-circle"
+                            style="color: #5b5b5b;" data-width="20" data-height="20"></span>
+                        <p>{{transferExchangeStatus(myExchange.exchangeStatus)}}</p>
+                    </div>
+                </div>
+
+            </li>
+
+        </ul>
+    </div>
+    <!-- <div class="popup-footer">
+        <button class="w-100 submitBtn btn">
+            <p>Trao đổi ngay</p>
+            <img class="exchange-logo" src="../../image/home/logo_home.png" alt="">
+        </button>
+    </div> -->
+</div>

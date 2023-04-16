@@ -1,0 +1,123 @@
+.header {
+    padding: 5px 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.header .btn-back {
+    display: inline;
+}
+
+.header svg {
+    transform: scale(1.5);
+    margin-right: 20px;
+    margin-left: 10px;
+}
+
+.header svg:hover {
+    transform: scale(1.7);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.header p {
+    font-weight: 400;
+    display: inline;
+    font-size: 18px;
+    margin-left: 5px;
+}
+
+.messages {
+    height: 400px;
+    overflow-y: scroll;
+}
+
+.bubbleWrapper {
+    padding: 1px 20px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-self: flex-end;
+    color: #fff;
+}
+
+.inlineContainer {
+    display: inline-flex;
+}
+
+.inlineContainer.own {
+    flex-direction: row-reverse;
+}
+
+.inlineIcon {
+    height: 30px;
+    width: 30px;
+    margin-top: 10px;
+    object-fit: cover;
+    border-radius: 30px;
+}
+
+.ownBubble {
+    min-width: 60px;
+    max-width: 400px;
+    padding: 8px 12px;
+    margin: 6px 8px;
+    background-color: #5b5377;
+    border-radius: 16px 16px 0 16px;
+    border: 1px solid #443f56;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.otherBubble {
+    min-width: 60px;
+    max-width: 400px;
+    padding: 8px 12px;
+    margin: 6px 8px;
+    background-color: #6C8EA4;
+    border-radius: 16px 16px 16px 0;
+    border: 1px solid #54788e;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.own {
+    align-self: flex-end;
+}
+
+.other {
+    align-self: flex-start;
+}
+
+span.own,
+span.other {
+    font-size: 14px;
+    color: grey;
+}
+
+.type-message {
+    .content {
+        padding: 5px 20px;
+    }
+
+    .input-message {
+        width: 88%;
+        margin-right: 10px;
+        padding: 8px 14px;
+        border: none;
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+        outline: none;
+    }
+
+    .input-message:focus {
+        box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
+    }
+
+    .send-message {
+        width: 9%;
+        border: none;
+        color: white;
+        padding: 8px;
+        border-radius: 10px;
+    }
+}

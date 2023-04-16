@@ -1,0 +1,16 @@
+<div class="header row">
+    <div class="col-12 content d-flex justify-content-between align-items-center">
+        <span class="number-of-result">{{numberOfProduct}} kết quả được tìm thấy</span>
+        <div class="sort d-flex align-items-center">
+            <span class="text">Sắp xếp theo</span>
+            <button id="btn-popular" value="POPULAR" class="popular btn btn-outline-light active"
+                (click)="onClick($event)">Phổ
+                biến</button>
+            <button id="btn-newest" value="NEWEST" class="newest btn btn-outline-white" (click)="onClick($event)">Mới
+                nhất</button>
+            <button id="btn-favorite" value="FAVORITE" class="favorite btn btn-outline-white"
+                (click)="onClick($event)">Yêu
+                thích nhất</button>
+        </div>
+    </div>
+</div>

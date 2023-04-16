@@ -1,0 +1,18 @@
+<div class="slide-image">
+    <div class="main-image">
+        <img src="{{thumbnail}}" alt="">
+    </div>
+    <div class="click-image">
+        <div (click)="previousThumbnail()" class="next">
+            <span class="iconify" data-icon="ooui:previous-ltr" style="color: red;"></span>
+        </div>
+        <div class="images" id="images">
+            <div class="contain-image" *ngFor="let productImage of productImages_; let i = index">
+                <img id={{i}} src="{{productImage}}" alt="" (click)="changeThumbnail(i)" [ngClass]="{'active': i==0}">
+            </div>
+        </div>
+        <div (click)="nextThumbnail()" class="next">
+            <span class="iconify" data-icon="ooui:previous-rtl" style="color: red;"></span>
+        </div>
+    </div>
+</div>

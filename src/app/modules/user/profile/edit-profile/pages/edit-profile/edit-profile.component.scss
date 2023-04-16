@@ -1,0 +1,56 @@
+
+.information{
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    overflow: hidden;
+    background-color: white;
+    padding: 0;
+}
+
+.information .header{
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    padding: 10px 0;
+    font-size: 22px;    
+    /* border-bottom: 1px solid gray; */
+    color: #44609F;
+    font-weight: 500;
+}
+
+.information > .content{
+    width: 100%;
+    margin: 0;
+}
+
+.information .content .left-content{
+    /* background-color: antiquewhite; */
+    /* height: 400px; */
+    border-right: 1px rgb(175, 175, 175) solid;
+    padding: 15px 20px;
+    /* padding: 40px; */
+}
+
+.information .content .right-content{
+    padding: 10px;
+}
+
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+
+@media only screen and (max-width: 992px) {
+    .information .content .right-content{
+        border-top: 1px solid rgb(201, 201, 201);
+    }
+        
+    .information .content .left-content{
+        border-right: none;
+    }
+}

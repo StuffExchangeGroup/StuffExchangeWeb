@@ -1,0 +1,52 @@
+<div class="">
+    <ngx-spinner [fullScreen]="false" bdColor="rgb(213, 213, 213, 0.8)" size="medium" color="#44609F"
+        type="ball-scale-multiple">
+    </ngx-spinner>
+    <div class="row products">
+        <div *ngFor="let product of products | paginate: paginate; trackBy: trackId"
+            class="parent-card col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
+            <div class="card">
+                <div class="thumbnail" [routerLink]="['/products/', product.id]">
+                    <img [src]="product.thumbnail" alt="">
+                </div>
+                <app-favourite [product]="product" [belongTo]="'product-list'"></app-favourite>
+                <div class="information">
+                    <div class="d-flex justify-content-between icon-condition">
+                        <div class="icons">
+                            <span *ngIf="product.isExchange" class="iconify"
+                                data-icon="ic:baseline-swap-horizontal-circle" style="color: #44609f;" data-width="25"
+                                data-height="25"></span>
+                            <span *ngIf="product.isGift" class="iconify" data-icon="fluent:gift-20-filled"
+                                style="color: #44609f;" data-width="25" data-height="25"></span>
+                        </div>
+                        <div class="condition">{{getCondition(product.condition)}}</div>
+                    </div>
+
+                    <div class="product-name">
+                        <!-- <p [routerLink]="['/products', product.id]">{{product.name}}</p> -->
+                        <p [routerLink]="['/products/', product.id]">{{product.name}}</p>
+                    </div>
+
+                    <div class="d-flex justify-content-between avt-day row">
+                        <div class="avt col-8 d-flex align-items-center">
+                            <img [src]="product.profile.avatar" alt="">
+                            <span class="name">{{product.profile.displayName}}</span>
+                        </div>
+                        <div class="day d-flex align-items-center col-4 justify-content-end">
+                            <span class="align-items-end">{{calculateDate(product.createdDate)}} ngày</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="paginate.totalItems === 0" class="d-flex justify-content-center text-danger mt-5">Không tìm thấy sản
+        phẩm
+        nào</div>
+
+    <pagination-controls *ngIf="paginate.totalItems !== 0 && products" class="d-flex justify-content-center"
+        previousLabel="Trước" nextLabel="Sau" (pageChange)="onPageChange($event)"></pagination-controls>
+
+</div>

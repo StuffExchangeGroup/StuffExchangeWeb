@@ -1,0 +1,55 @@
+<ngx-spinner [fullScreen]="false" bdColor="rgb(213, 213, 213, 0.8)" size="medium" color="#44609F"
+    type="ball-scale-multiple">
+</ngx-spinner>
+
+<div *ngIf="errorMessage" class="error-message">
+    <a>{{errorMessage}}</a>
+</div>
+<div *ngFor="let detailExchange of detailExchanges; let i = index; trackBy: trackId" class="row content">
+    <div id="{{detailExchange.myProduct.productId}}" class="col-4">
+        <div class="my-detail-item" (click)="seeMyDetailProduct(detailExchange)">
+            <img class="thumbnail" src="{{detailExchange.myProduct.thumbnail}}" alt="">
+            <p class="product-name">{{detailExchange.myProduct.productName}}</p>
+        </div>
+    </div>
+    <div class="col-4 px-0">
+        <div class="my-item-swap-status">
+            <div class="swap-type">
+                <img *ngIf="detailExchange.swapType === 'SENT'" src="../../../../../../assets/img/swap/send.png" alt="">
+                <img *ngIf="detailExchange.swapType === 'RECEIVED'" src="../../../../../../assets/img/swap/recevice.png"
+                    alt="">
+            </div>
+            <div class="status d-flex">
+                <div class="status-icon">
+                    <div class="confirm-swap-btn" (click)="onConfirmSwap(detailExchange, i)">
+                        <span id="icon-{{detailExchange.exchangeId}}-{{detailExchange.myProduct.productId}}"
+                            class="iconify iconify-status-icon" data-icon="mdi:send-circle"
+                            [ngClass]="{'accept-icon': detailExchange.ownerConfirm === 'ACCEPT'}" data-width="35"
+                            data-height="35"></span>
+                    </div>
+                    <div (click)="onStartConversation(detailExchange, i)" class="confirm-swap-btn"
+                        style="padding-top: 2px;">
+                        <img class="mx-3" style="object-fit: contain" *ngIf="detailExchange.chatting"
+                            src="../../../../../../assets/img/swap/se-icon.png" alt="">
+                        <img class="mx-3" style="object-fit: contain" *ngIf="!detailExchange.chatting"
+                            src="../../../../../../assets/img/swap/no-swap-icon.png" alt="">
+                    </div>
+                    <div class="confirm-swap-btn">
+                        <span class="iconify iconify-status-icon" data-icon="mdi:send-circle"
+                            [ngClass]="{'accept-icon': detailExchange.exchangerConfirm === 'ACCEPT'}" data-width="35"
+                            data-height="35" data-rotate="180deg"></span>
+                    </div>
+                </div>
+                <hr class="line line-1 " [ngClass]="{'line-success': detailExchange.ownerConfirm === 'ACCEPT'}" />
+                <hr class="line line-2 " [ngClass]="{'line-success': detailExchange.chatting}" />
+                <hr class="line line-3" [ngClass]="{'line-success': detailExchange.exchangerConfirm === 'ACCEPT'}">
+            </div>
+        </div>
+    </div>
+    <div id="{{detailExchange.exchangeProduct.productId}}" class="col-4">
+        <div class="my-detail-item" (click)="seeDetailProduct(detailExchange)">
+            <img class="thumbnail" src="{{detailExchange.exchangeProduct.thumbnail}}" alt="">
+            <p class="product-name">{{detailExchange.exchangeProduct.productName}}</p>
+        </div>
+    </div>
+</div>

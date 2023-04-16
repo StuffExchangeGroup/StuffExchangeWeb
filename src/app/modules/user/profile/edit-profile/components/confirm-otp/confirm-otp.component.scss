@@ -1,0 +1,93 @@
+/* right content - confirm form */
+.confirm-otp{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center ;
+    // display: none;
+}
+
+.confirm-otp img{
+    height: 130px;
+}
+
+.confirm-otp div.title{
+    font-size: 20px;
+    font-weight: 500;
+    color: #44609F;
+}
+
+.confirm-otp div.detail{
+    font-size: 15px;
+    color: rgb(100, 100, 100);
+    padding: 5px 20px;
+}
+
+.confirm-otp input{
+    border-radius: 10px;
+    margin-top: 20px;
+    text-align: center;
+    color: #1f4294;
+    font-weight: 500;
+    height: 35px;
+    width: 250px;
+    border: 1px solid rgb(174, 174, 174);
+    outline: none;
+}
+
+.confirm-otp input::placeholder{
+    color: rgb(172, 172, 172);
+}
+
+.confirm-otp .button{
+    margin-top: 10px;
+}
+
+.confirm-otp .btn-confirm{
+    background-color: #44609F;
+    color: white;
+    padding: 5px 20px;
+}
+
+.confirm-otp .btn-cancel{
+    background-color: #DD6161;
+    color: white;
+    padding: 5px 20px;
+}
+
+.confirm-otp .resend-otp{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.confirm-otp .resend-otp p{
+    font-weight: 400;
+}
+
+.confirm-otp .resend-otp a{
+    color: #5a7ac6;
+    font-weight: 400;
+}
+/* end right content - confirm form */
+
+
+// error message
+div.error{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+div.error p{
+    color: red;
+    font-size: 13px;
+    font-weight: 300;
+    margin: 0;
+    display: inline;
+    margin-left: 2px;
+}
+
+div.error svg{
+    color: red;
+    font-size: 20px;
+}

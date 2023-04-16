@@ -1,0 +1,144 @@
+/* product list */
+.products .parent-card {
+    margin: 0;
+    padding: 0;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+
+.products .parent-card .card {
+    height: 290px;
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.products .parent-card .card:hover {
+    transform: scale(1.05);
+    transition: 0.5s all;
+    cursor: pointer;
+}
+
+.products .parent-card .card .heart {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.products .parent-card .card .heart:hover {
+    transform: scale(1.3);
+    transition: 0.5s all;
+}
+
+.favourited {
+    color: red !important;
+}
+
+.notFavourited {
+    color: #dfd9d9;
+}
+
+
+.products .parent-card .card .thumbnail {
+    width: 100%;
+    height: 150px;
+    background-color: rgb(250, 250, 250);
+}
+
+.products .parent-card .card .thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.products .parent-card .card .information {
+    padding: 5px;
+}
+
+.products .parent-card .card .information .product-name {
+    height: 50px;
+    margin-top: 10px;
+}
+
+.products .parent-card .card .icon-condition {
+    margin-top: 2px;
+}
+
+.products .parent-card .card .icon-condition .condition {
+    color: #EB5F4D;
+    font-size: 15px;
+    /* font-weight: 500; */
+}
+
+.products .parent-card .card .information .product-name p {
+    font-size: 15px;
+    /* font-weight: 410; */
+    /* font-size: small */
+    height: 55px;
+    margin: 0;
+    font-weight: normal;
+    overflow: hidden;
+    /* white-space: nowrap; */
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+}
+
+.products .parent-card .card .information .product-name p:hover {
+    color: #44609F;
+}
+
+
+.products .parent-card .card .information .avt-day {
+    margin: 10px 0 0 0;
+    width: 100%;
+    height: 30px;
+}
+
+.products .parent-card .card .information .avt-day .avt img {
+    height: 30px;
+    width: 30px;
+    border-radius: 100%;
+    object-fit: cover;
+}
+
+.products .parent-card .card .information .avt-day .avt span {
+    /* font-weight: 550; */
+    font-size: 13px;
+    font-weight: normal;
+    height: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-left: 2px;
+}
+
+.products .parent-card .card .information .avt-day .avt span:hover {
+    color: #44609F;
+}
+
+.products .parent-card .card .information .avt-day div {
+    padding: 0;
+}
+
+.products .parent-card .card .information .avt-day .day {
+    vertical-align: middle;
+}
+
+.products .parent-card .card .information .avt-day .day span {
+    font-size: 14px;
+    color: #EB5F4D;
+    height: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/*responsive*/
+@media screen and (max-width: 768px) {
+    .products .parent-card {
+        padding: 10px;
+    }
+}

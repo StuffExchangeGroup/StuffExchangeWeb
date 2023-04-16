@@ -1,0 +1,56 @@
+<div class="side-bar-header">
+    <div class="side-bar-avatar" (click)="onOpenPopupProfile()">
+        <img height="70px" width="70px" class="" [src]="user?.avatar" alt="">
+        <span class="iconify" data-icon="bxs:message-square-edit" style="color: #686871;" data-width="20"
+            data-height="20"></span>
+    </div>
+    <div class="side-bar-profilename">
+        <span class="title">Tài khoản</span>
+        <span class="profile-name">{{user?.firstName + ' ' + user?.lastName}}</span>
+    </div>
+</div>
+<div class="side-bar-menu">
+    <ul class="menu-items">
+        <li class="item" [routerLink]="['/profile/edit']" routerLinkActive="active">
+            <span class="iconify" data-icon="bxs:user" style="color: black;" data-width="25" data-height="25"></span>
+            <span class="item-content px-3">
+                Thông tin tài khoản
+            </span>
+        </li>
+        <li class="item" [routerLink]="['/profile/product/post']" routerLinkActive="active">
+            <span class="iconify" data-icon="bxs:edit" data-width="25" data-height="25"></span>
+            <span class="item-content px-3">
+                Đăng sản phẩm
+            </span>
+        </li>
+        <li class="item" [routerLink]="['/profile/product/list']" routerLinkActive="active">
+            <span class="iconify" data-icon="icon-park-outline:setting-web" style="color: black;" data-width="25"
+                data-height="25"></span>
+            <span class="item-content px-3">
+                Quản lý sản phẩm
+            </span>
+        </li>
+        <li class="item" [routerLink]="['/profile/notification']" routerLinkActive="active">
+            <span class="iconify" data-icon="clarity:notification-solid" style="color: black;" data-width="25"
+                data-height="25"></span>
+            <span class="item-content px-3">
+                Thông báo
+            </span>
+        </li>
+        <li routerLinkActive="active" [routerLink]="['/profile/wish-list']" class="item">
+            <span class="iconify" data-icon="ant-design:heart-filled" style="color: black;" data-width="25"
+                data-height="25"></span>
+            <span class="item-content px-3">
+                Sản phẩm yêu thích
+            </span>
+        </li>
+        <!-- <li class="item">
+            <span class="iconify" data-icon="carbon:location-filled" style="color: black;" data-width="25"
+                data-height="25"></span>
+            <span class="item-content px-3">
+                Số địa chỉ
+            </span>
+        </li> -->
+
+    </ul>
+</div>

@@ -1,0 +1,43 @@
+<div class="similar">
+    <div class="similar-product-title">
+        <h6>Sản phẩm tương tự</h6>
+    </div>
+    <div class="row similar-card">
+        <div *ngFor="let product of products" class="col-xl-6 col-lg-12 col-md-4 col-sm-6 card_content_list">
+            <div class="card">
+                <div class="card_img_header">
+                    <img class="card-img-top" [routerLink]="['/products/', product.id]" src="{{product.thumbnail}}"
+                        alt="Card image cap">
+                </div>
+                <!-- the heart of productCard -->
+                <app-favourite [product]="product" [belongTo]="'similar'"></app-favourite>
+                <div class="card-body">
+                    <div class="d-flex align-items-end justify-content-between py-1 purpose-status">
+                        <div>
+                            <span *ngIf="product.isExchange" class="iconify"
+                                data-icon="ic:baseline-swap-horizontal-circle" style="color: #44609f;" data-width="25"
+                                data-height="25"></span>
+                            <span *ngIf="product.isGift" class="iconify" data-icon="fluent:gift-20-filled"
+                                style="color: #44609f;" data-width="20" data-height="20"></span>
+                        </div>
+                        <span class="status">{{getCondition(product.productCondition)}}</span>
+                    </div>
+                    <div [routerLink]="['/products/', product.id]" class="body_text">
+                        <p class="card-title">{{product.productName}}</p>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div class="profile-product">
+                            <img src="{{product.avatar}}" alt="" width="25px" height="20px" class="rounded-circle">
+                            <p class="product-username">{{product.displayName}}</p>
+                        </div>
+                        <!-- <span class="time-left">{{calculateDate(product.createdDate)}} ngày</span> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row view-all">
+        <!-- <Button class="w-75">Xem tất cả</Button> -->
+        <a (click)="viewAllSimilarProduct()">Xem tất cả</a>
+    </div>
+</div>

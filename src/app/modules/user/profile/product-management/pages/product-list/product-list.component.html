@@ -1,0 +1,43 @@
+<div class="information">
+    <ngx-spinner [fullScreen]="false" bdColor="rgb(213, 213, 213, 0.8)" size="medium" color="#44609F"
+        type="ball-scale-multiple">
+    </ngx-spinner>
+    <div class="header">
+        Quản lý sản phẩm
+    </div>
+    <div class="content d-flex justify-content-end align-items-center w-100">
+        <p>Lọc theo</p>
+        <select (change)="onSelectFilter($event)" class="form-select select-selected"
+            aria-label="Default select example">
+            <option value="ALL" selected>Tất cả </option>
+            <option value="SWAPPED">Đã trao đổi</option>
+            <option value="AVAILABLE">Chưa trao đổi</option>
+        </select>
+    </div>
+    <div *ngIf="myProducts?.length === 0" class="message"><a [routerLink]="['/profile/product/post']">Đăng sản phẩm
+            ngay</a>
+    </div>
+    <div *ngFor="let myProduct of myProducts; let i = index;">
+        <div class="content-item">
+            <div class="content-item-img">
+                <img src="{{myProduct.thumbnail}}" alt="" [routerLink]="['/profile/product/detail', myProduct.id]">
+            </div>
+            <div class="content-item-title">
+                <p class="item-title" [routerLink]="['/profile/product/detail', myProduct.id]">
+                    {{myProduct.title}}
+                </p>
+                <p class="post-day">Ngày đăng: {{convertCreatedDate(myProduct.createdDate)}}</p>
+            </div>
+            <div class="content-item-btn">
+                <div [routerLink]="['/profile/product/update/' + myProduct.id]">
+                    <span class="iconify" data-icon="fe:edit" style="color: #44609f;" data-width="30"></span>
+                </div>
+                <div (click)="onDeleteProduct(myProduct.id, i)">
+                    <span class="iconify" data-icon="fluent:delete-48-filled" style="color: #e94833;"
+                        data-width="30"></span>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </div>
+</div>

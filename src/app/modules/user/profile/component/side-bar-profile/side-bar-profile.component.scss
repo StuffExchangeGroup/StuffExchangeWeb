@@ -1,0 +1,93 @@
+.side-bar-header {
+    display: flex;
+}
+
+.side-bar-header .side-bar-avatar {
+    position: relative;
+    cursor: pointer;
+}
+
+.side-bar-header .side-bar-avatar:hover {
+    transform: scale(1.01);
+    transition: all 0.5s;
+}
+
+.side-bar-header .side-bar-avatar img {
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #b4c2e2;
+}
+
+.side-bar-header .side-bar-avatar .iconify {
+    position: absolute;
+    bottom: 3px;
+    right: -5%;
+}
+
+.side-bar-header .side-bar-profilename {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.side-bar-header .side-bar-profilename .title {
+    color: #9B9B9B;
+}
+
+.side-bar-header .side-bar-profilename span {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: black;
+    padding: 5px 0;
+}
+
+.side-bar-menu {
+    margin-top: 25px;
+}
+
+.side-bar-menu .menu-items {
+    list-style: none;
+    padding: 0;
+}
+
+.side-bar-menu .menu-items .item {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+}
+
+.side-bar-menu .menu-items .active span {
+    color: #44609f !important;
+    font-weight: 500 !important;
+}
+
+.side-bar-menu .menu-items .active .iconify {
+    color: #44609f !important;
+}
+
+.side-bar-menu .menu-items .item .item-content {
+    font-family: 'Kanit';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height */
+    color: #000000;
+}
+
+.side-bar-menu .menu-items .item .item-content:hover {
+    color: #375497;
+    font-weight: 400;
+}
+
+.side-bar-menu .menu-items {
+    list-style: none;
+}
+
+span {
+    cursor: pointer;
+}

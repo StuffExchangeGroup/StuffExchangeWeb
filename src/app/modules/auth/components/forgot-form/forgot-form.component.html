@@ -1,0 +1,27 @@
+<!-- Forgot form -->
+<div class="forgot-form">
+    <div class="header">
+        <div>
+            <p class="title">QUÊN MẬT KHẨU?</p>
+            <p class="message">Hãy nhập địa chỉ email đã liên kết với tài khoản của bạn</p>
+        </div>
+        <img src="../../../../../assets/img/web/ForgotPassword/ForgotPass.jpg" alt="">
+    </div>
+    <div class="form">
+        <form [formGroup]="forgotForm" class="row">
+            <input type="text" class="col-8" placeholder="Nhập email của bạn" formControlName="email">
+
+            <button class="btn col-3" (click)="onSubmit()">Tiếp theo</button>
+        </form>
+        <div class="error row col-8" *ngIf="!email?.valid && (email?.dirty || email?.touched)">
+            <div [hidden]="!email?.errors?.['required']">
+                <span class="iconify" data-icon="bxs:error-circle"></span>
+                <p>Hãy nhập email của bạn</p>
+            </div>
+            <div [hidden]="!email?.errors?.['email']">
+                <span class="iconify" data-icon="bxs:error-circle"></span>
+                <p>Email không đúng định dạng</p>
+            </div>
+        </div>
+    </div>
+</div>

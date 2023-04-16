@@ -1,0 +1,88 @@
+<div class="row detail-info">
+    <div class="slide-left col-lg-6 col-md-12">
+        <app-product-image-slide *ngIf="product" [productImages]="product.imageLinks">
+        </app-product-image-slide>
+        <div class="share d-flex justify-content-between">
+            <div class="d-flex">
+                <span>
+                    Chia sẻ:
+                </span>
+                <a target="_blank" [href]="shareUrlToFb" class="fb-xfbml-parse-ignore">
+                    <span class="iconify" data-icon="fa:facebook-official" style="color: #1877F2; margin-left: 10px;"
+                        data-width="28" data-height="28"></span>
+                </a>
+                <div class="zalo-share-button d-inline" [attr.data-href]="shareUrl" data-oaid="4416725633282590560"
+                    data-layout="3" data-color="white" data-customize="true">
+                    <img src="../../../../../../assets/img/icons/zalo.png" alt="Chia sẻ sản phẩm" height="28px"
+                        width="28px" class="zalo-img">
+                </div>
+            </div>
+            <div class="d-flex">
+                <div class="heart favourited">
+                    <span class="iconify mr-1" data-icon="ant-design:heart-filled" data-width="25"
+                        data-height="25"></span>
+                </div>
+                <span>
+                    Đã thích: {{product?.likedCount}}
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-12 info">
+        <h6 class="name-product">{{product?.title}}</h6>
+        <div class="other-info">
+            <div>
+                <span class="iconify" data-icon="tabler:category" style="color: #979797;" data-width="30"
+                    data-height="30"></span>
+                <span>
+                    <!-- Tình trạng sử dụng: {{product?.productCondition}} -->
+                    Danh mục : {{product?.categoryName}}
+                </span>
+            </div>
+            <div>
+                <span class="iconify" data-icon="carbon:location-filled" style="color: #979797;" data-width="30"
+                    data-height="30"></span>
+                <span>
+                    Khu vực: {{product?.cityName}}
+                </span>
+            </div>
+            <div>
+                <span class="iconify" data-icon="codicon:layout-statusbar" style="color: #979797;" data-width="28"
+                    data-height="28"></span>
+                <span>
+                    Trạng thái: {{getStatus(product?.status)}}
+                </span>
+            </div>
+
+            <div>
+                <span class="iconify" data-icon="fluent:phone-status-bar-20-filled" style="color: #979797;"
+                    data-width="30" data-height="30"></span>
+                <span>
+                    Tình trạng sử dụng: {{getCondition(product?.productCondition)}}
+                </span>
+            </div>
+            <div>
+                <span class="iconify" data-icon="bxs:time-five" style="color: #979797;" data-width="30"
+                    data-height="30"></span>
+                <span>Ngày đăng: {{product?.createdDate | date: 'dd/MM/yyyy'}}</span>
+            </div>
+
+            <hr />
+            <div>
+                <span class="iconify" data-icon="mdi:send-circle-outline" style="color: #44609F;" data-width="30"
+                    data-height="30"></span>
+                <span>
+                    Số yêu cầu gửi: {{product?.requestCount}}
+                </span>
+            </div>
+            <div>
+                <span class="iconify" data-icon="mdi:send-circle-outline"
+                    style="color: #e2c311; transform: rotate(180deg);" data-width="30" data-height="30"></span>
+                <span>
+                    Số yêu cầu nhận: {{product?.receiveCount}}
+                </span>
+            </div>
+        </div>
+
+    </div>
+</div>

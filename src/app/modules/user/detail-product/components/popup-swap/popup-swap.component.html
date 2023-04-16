@@ -1,0 +1,32 @@
+<div class="pop-up-swap">
+    <img [ngStyle]="{'display': isLoading ? 'block' : 'none'}" height="25px" width="25px"
+        style="position: absolute; right: 50%;top: 50%;" src="../../../../../../assets/img/web/isLoading.gif" alt="">
+
+    <a (click)="closePopUp()" *ngIf="!isLoggedIn" [routerLink]="['/auth/login']" class="notLogin">Đăng nhập
+        để chọn món đồ của bạn</a>
+    <a (click)="closePopUp()" *ngIf="(myItems!.length == 0 && isLoggedIn)" [routerLink]="['/profile/product/post']"
+        class="notLogin">Hãy đăng món hàng để trao đổi</a>
+
+    <div class="popup-header">
+        <h3 class="popup-title">Chọn sản phẩm để trao đổi</h3>
+        <div class="close" (click)="closePopUp()">
+            <span style="color: #44609f;" class="iconify" data-icon="ep:close-bold" data-width="17"
+                data-height="17"></span>
+        </div>
+    </div>
+    <div class="popup-content">
+        <ul class="popup-list-item">
+            <li (click)="onSelectedItem(myItem.id)" *ngFor="let myItem of myItems; trackBy: trackId"
+                id="item-{{myItem.id}}" class="item">
+                <img class="thumbnail" src="{{myItem.thumbnail}}" alt="">
+                <p class="product-name">{{myItem.title}}</p>
+            </li>
+        </ul>
+    </div>
+    <div class="popup-footer">
+        <button (click)="onSwapNow()" class="submitBtn btn">
+            <p>Trao đổi ngay </p>
+            <img class="exchange-logo" src="../../../../../../assets/img/logo/logo_wy.png" alt="">
+        </button>
+    </div>
+</div>
