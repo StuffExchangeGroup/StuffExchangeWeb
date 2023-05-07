@@ -2,12 +2,14 @@
     <table class="table align-items-center table-flush">
         <thead class="thead-light">
             <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Username</th>
+                <th scope="col">Passworld</th>
                 <th scope="col">Email</th>
-                <th scope="col">Uid</th>
-                <th scope="col">name</th>
-                <th scope="col">type</th>
-                <th scope="col">Avarta</th>
-                <th scope="col"></th>
+                <th scope="col">Avartar</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Adress</th>
+
             </tr>
         </thead>
         <tbody>
@@ -45,6 +47,10 @@
                             <span class="dropdown-item" (click)="deleteUser(user)">
                                 <i class="fas fa-trash"></i>
                                 Delete
+                            </span>
+                            <span class="dropdown-item" (click)="deleteUser(user)">
+                                <i class="fas fa-lock"></i>
+                                Lock Up
                             </span>
                         </div>
                     </div>
