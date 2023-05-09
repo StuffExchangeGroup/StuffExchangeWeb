@@ -17,6 +17,20 @@ const routes: Routes = [
             moduleName: 'UserManagement'
         },
     },
+    {
+        path: 'category-management',
+        loadChildren: () => import('../../modules/admin/category-management/category-management.module').then(m => m.CategoryManagementModule),
+        data: {
+            moduleName: 'CategoryManagement'
+        },
+    },
+    {
+        path: 'product-management',
+        loadChildren: () => import('../../modules/admin/product-management/product-management.module').then(m => m.ProductManagementModule),
+        data: {
+            moduleName: 'ProductManagement'
+        },
+    },
 ];
 
 @NgModule({
