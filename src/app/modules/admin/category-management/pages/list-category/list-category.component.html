@@ -1,1 +1,22 @@
-<p>list-category works!</p>
+<div class="container-fluid mt-6">
+    <!-- Table -->
+    <div class="row">
+        <div class="col">
+            <div class="card shadow">
+                <div class="card-header border-0">
+                    <h3 class="mb-0">
+                        Danh sách người dùng 
+                        <span class="icon-button">
+                           <i class="fas fa-plus"></i>
+                        </span>
+                    </h3>
+                </div>
+                <app-category-table [ListCategory]="(categories)"
+                                [showLoadingCategories]="showLoadingCategories"
+                                (editUserEvent)="editCategory($event)"
+                                (deleteUserEvent)="deleteCategory($event)">
+                </app-category-table>
+            </div>
+        </div>
+    </div>
+</div>

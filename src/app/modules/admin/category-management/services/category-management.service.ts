@@ -12,7 +12,7 @@ export class CategoryManagementService {
 
     constructor(private httpClient: HttpClient) {}
 
-    public getCategories(): Observable<ICategoryRes> {
-        return this.httpClient.get<ICategoryRes>(this.baseUrl + 'api/app/categories');
+    public getCategories(): Observable<any> {
+        return this.httpClient.get<any>(this.baseUrl + 'api/app/categories');
     }
 }

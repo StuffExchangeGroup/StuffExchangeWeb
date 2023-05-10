@@ -17,15 +17,16 @@ export class ListCategoryComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
+    this.getCategories();
   }
 
-  getCategories() {
+  public getCategories(): void {
     this.showLoadingCategories = true;
         this.categoryService.getCategories()
         .subscribe({
-            next: (result: ICategoryRes) => {
-                this.categories = result.categories;
-                console.log(this.categories)
+            next: (result) => {
+                this.categories = result.data.categories;
+                console.log(result)
             },
             error: (e) => {
                 this.showLoadingCategories = false;
@@ -38,10 +39,10 @@ export class ListCategoryComponent implements OnInit {
 
   public editCategory($event: string): void {
     this.router.navigate(['/admin/user-management/add-user']);
-}
+  }
 
-public deleteCategory($event: string): void {
-    this.router.navigate(['/admin/user-management/edit-user/' + $event]);
-}
+  public deleteCategory($event: string): void {
+      this.router.navigate(['/admin/user-management/edit-user/' + $event]);
+  }
 
 }
