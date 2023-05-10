@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ICategory, ICategoryRes } from '../../models/ICategory';
+import { CategoryManagementService } from '../../services/category-management.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-list-category',
@@ -6,10 +10,38 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-category.component.scss']
 })
 export class ListCategoryComponent implements OnInit {
+  public categories?: ICategory[];
+  public showLoadingCategories: boolean = false;
 
-  constructor() { }
+  constructor(private categoryService: CategoryManagementService,
+    private router: Router) { }
 
   ngOnInit(): void {
   }
+
+  getCategories() {
+    this.showLoadingCategories = true;
+        this.categoryService.getCategories()
+        .subscribe({
+            next: (result: ICategoryRes) => {
+                this.categories = result.categories;
+                console.log(this.categories)
+            },
+            error: (e) => {
+                this.showLoadingCategories = false;
+            },
+            complete: () => {
+                this.showLoadingCategories = false;
+            }
+        });
+  }
+
+  public editCategory($event: string): void {
+    this.router.navigate(['/admin/user-management/add-user']);
+}
+
+public deleteCategory($event: string): void {
+    this.router.navigate(['/admin/user-management/edit-user/' + $event]);
+}
 
 }

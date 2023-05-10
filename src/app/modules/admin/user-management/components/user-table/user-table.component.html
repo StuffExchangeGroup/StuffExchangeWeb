@@ -2,58 +2,35 @@
     <table class="table align-items-center table-flush">
         <thead class="thead-light">
             <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Username</th>
-                <th scope="col">Passworld</th>
+                <th scope="col">Mã</th>
+                <th scope="col">Tên</th>
                 <th scope="col">Email</th>
-                <th scope="col">Avartar</th>
-                <th scope="col">Phone</th>
-                <th scope="col">Adress</th>
-
+                <th scope="col">Số điện thoại</th>
+                <th scope="col">Ngày tạo</th>
+                <th scope="col">Hành động</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let user of listUser?.users">
-                <th scope="row">
+            <tr *ngFor="let user of listUser let i = index" >
+                <td scope="row">
+                    {{i}}
+                </td>
+                <td>
+                    {{user.firstName}} {{user.lastName}}
+                </td>
+                <td>
                     {{user.email}}
-                </th>
-                <td>
-                    {{user.uid}}
                 </td>
                 <td>
-                    {{user.name}}
+                    {{user.email}}
                 </td>
                 <td>
-                    {{user.type}}
-                </td>
-                <td>
-                    <div class="avatar-group">
-                        <a href="javascript:void(0)" class="avatar avatar-sm" data-toggle="tooltip"
-                            data-original-title="Ryan Tompson">
-                            <img alt="Image placeholder" src="{{user.imgURL}}" class="rounded-circle">
-                        </a>
-                    </div>
+                    {{user.createdDate | date: 'dd/MM/yyyy'}}
                 </td>
                 <td class="text-right">
-                    <div ngbDropdown placement="bottom-right">
-                        <a class="btn btn-sm btn-icon-only text-light" ngbDropdownToggle>
-                            <i class="fas fa-ellipsis-v"></i>
-                        </a>
-                        <div ngbDropdownMenu class="dropdown-menu-right dropdown-menu-arrow">
-                            <span class="dropdown-item" (click)="editUser(user)">
-                                <i class="fas fa-edit"></i>
-                                Edit
-                            </span>
-                            <span class="dropdown-item" (click)="deleteUser(user)">
-                                <i class="fas fa-trash"></i>
-                                Delete
-                            </span>
-                            <span class="dropdown-item" (click)="deleteUser(user)">
-                                <i class="fas fa-lock"></i>
-                                Lock Up
-                            </span>
-                        </div>
-                    </div>
+                    <button (click)="editUser(user)">Edit</button>
+                    <button (click)="deleteUser(user)">Delete</button>
+                    <button>Khóa</button>
                 </td>
             </tr>
         </tbody>

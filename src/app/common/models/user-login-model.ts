@@ -9,10 +9,26 @@ export interface IUserLoginResponse {
     message: string;
 }
 
+// export interface IUser {
+//     uid: string;
+//     name: string;
+//     email: string;
+//     accessToken: string;
+//     type: string;
+//     imgURL: string;
+//     password: string
+// }
+
 export interface IUser {
-    uid: string;
+    id: string,
+    login: string,
+    firstName: string,
+    lastName: string,
+    email: string,
+    imageUrl: string,
+    activated: string,
+    createdDate: string,
     name: string;
-    email: string;
     accessToken: string;
     type: string;
     imgURL: string;

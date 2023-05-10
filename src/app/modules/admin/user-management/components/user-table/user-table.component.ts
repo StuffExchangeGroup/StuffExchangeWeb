@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { IUser } from 'src/app/common/models/user-login-model';
-import { IListUserReponse } from '../../models/IUser';
+// import { IListUserReponse } from '../../models/IUser';
 
 @Component({
   selector: 'app-user-table',
@@ -9,7 +9,7 @@ import { IListUserReponse } from '../../models/IUser';
   styleUrls: ['./user-table.component.scss']
 })
 export class UserTableComponent implements OnInit {
-  @Input() listUser?: IListUserReponse;
+  @Input() listUser?: IUser[];
   @Input() set showLoadingUser(value: boolean) {
     value ? this.spinner.show() : ''
     this._showLoadingUser = value;
@@ -22,13 +22,14 @@ export class UserTableComponent implements OnInit {
 
   constructor(private spinner: NgxSpinnerService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   public editUser(user: IUser): void { 
-    this.editUserEvent.emit(user.uid)
+    this.editUserEvent.emit(user.id)
   }
 
   public deleteUser(user: IUser): void { 
-    this.deleteUserEvent.emit(user.uid)
+    this.deleteUserEvent.emit(user.id)
   }
 }

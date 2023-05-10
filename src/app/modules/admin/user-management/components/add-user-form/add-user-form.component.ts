@@ -10,7 +10,7 @@ import { IUser } from 'src/app/common/models/user-login-model';
 })
 export class AddUserFormComponent implements OnInit {
   @Input() set user(value: IUser | undefined) {
-    if (value && value.uid) {
+    if (value && value.id) {
       this.addFormControl(value);
       this.setDataForm(value);
     }
@@ -66,7 +66,7 @@ export class AddUserFormComponent implements OnInit {
   }
 
   private addFormControl(user: IUser): void {
-    const uidControl = new FormControl(user.uid || '', [
+    const uidControl = new FormControl(user.id || '', [
       Validators.required,
       Validators.min(0),
     ]);
@@ -76,7 +76,7 @@ export class AddUserFormComponent implements OnInit {
 
   private setDataForm(user: IUser) {
     this.addUserForm.patchValue({ 
-      uid: user.uid,
+      uid: user.id,
       email: user.email,
       name: user.name,
       password: user.password,

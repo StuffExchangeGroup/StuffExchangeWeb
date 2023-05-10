@@ -6,7 +6,7 @@ import { BaseDestroyableDirective } from 'src/app/common/abstract/base-destroyab
 import { TypeNotification } from 'src/app/common/enum/type-notification';
 import { TypeResponse } from 'src/app/common/enum/type-reposone';
 import { IUser } from 'src/app/common/models/user-login-model';
-import { IListUserReponse } from '../../models/IUser';
+// import { IListUserReponse } from '../../models/IUser';
 import { UserManagementService } from '../../services/user-management.service';
 
 @Component({
@@ -15,7 +15,7 @@ import { UserManagementService } from '../../services/user-management.service';
     styleUrls: ['./list-user.component.scss']
 })
 export class ListUserComponent extends BaseDestroyableDirective implements OnInit {
-    public listUser$: Observable<IListUserReponse>;
+    public listUser?: IUser[];
     public currentUser$: Observable<IUser>;
     public showLoadingUser: boolean;
 
@@ -23,7 +23,6 @@ export class ListUserComponent extends BaseDestroyableDirective implements OnIni
         private router: Router,
         private toastr: ToastrService) {
         super();
-        this.listUser$ = new Observable<IListUserReponse>();
         this.currentUser$ = new Observable<IUser>();
         this.showLoadingUser = false;
     }
@@ -34,10 +33,19 @@ export class ListUserComponent extends BaseDestroyableDirective implements OnIni
 
     public getListUser(): void {
         this.showLoadingUser = true;
-        this.listUser$ = this.userManagementService.getListUser().pipe(
-            finalize(() => {
+        this.userManagementService.getListUser()
+        .subscribe({
+            next: (result: any) => {
+                this.listUser = result;
+                console.log(this.listUser)
+            },
+            error: (e) => {
                 this.showLoadingUser = false;
-            }));
+            },
+            complete: () => {
+                this.showLoadingUser = false;
+            }
+        });
     }
 
     public addUser(): void {
@@ -65,3 +73,7 @@ export class ListUserComponent extends BaseDestroyableDirective implements OnIni
             });
     }
 }
+function error(error: any): void {
+    throw new Error('Function not implemented.');
+}
+
