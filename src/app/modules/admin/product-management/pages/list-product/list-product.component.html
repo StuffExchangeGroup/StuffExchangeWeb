@@ -1,1 +1,20 @@
-<p>list-product works!</p>
+<div class="container-fluid mt-6">
+    <!-- Table -->
+    <div class="row">
+        <div class="col">
+            <div class="card shadow">
+                <div class="card-header border-0">
+                    <h3 class="mb-0">
+                        Danh sách sản phẩm
+                        <span class="icon-button">
+                            <i class="fas fa-plus"></i>
+                        </span>
+                    </h3>
+                </div>
+                <app-product-table [ProductList]="(products)" [showLoadingCategories]="showLoadingCategories"
+                    (editProductEvent)="editProduct($event)" (deleteProductEvent)="deleteProduct($event)">
+                </app-product-table>
+            </div>
+        </div>
+    </div>
+</div>

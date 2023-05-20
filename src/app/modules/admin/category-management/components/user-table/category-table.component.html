@@ -4,13 +4,14 @@
             <tr>
                 <th scope="col">Mã</th>
                 <th scope="col">Tên</th>
+                <th scope="col">Mô tả</th>
                 <th scope="col">Ảnh</th>
                 <th scope="col">Trạng thái</th>
                 <th scope="col">Hành động</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let category of ListCategory let i = index" >
+            <tr *ngFor="let category of ListCategory let i = index">
                 <td scope="row">
                     {{i + 1}}
                 </td>
@@ -18,15 +19,18 @@
                     {{category.name}}
                 </td>
                 <td>
-                    <img [src]="category.thumbnail"/>
+                    {{category.description}}
+                </td>
+                <td>
+                    <img [src]="category.thumbnail" />
                 </td>
                 <td>
                     {{category.active ? "Hoạt động" : "Tạm ngưng"}}
                 </td>
-                <td class="text-right">
-                    <button (click)="editUser(category)">Edit</button>
-                    <button (click)="deleteUser(category)">Delete</button>
-                    <button>Khóa</button>
+                <td>
+                    <button class="btn btn-sm btn-primary" (click)="editUser(category)">Edit</button>
+                    <button class="btn btn-sm btn-warning">Khóa</button>
+                    <button class="btn btn-sm btn-danger" (click)="deleteUser(category)">Delete</button>
                 </td>
             </tr>
         </tbody>

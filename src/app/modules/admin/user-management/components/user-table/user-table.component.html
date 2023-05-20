@@ -11,7 +11,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let user of listUser let i = index" >
+            <tr *ngFor="let user of listUser let i = index">
                 <td scope="row">
                     {{i}}
                 </td>
@@ -27,10 +27,9 @@
                 <td>
                     {{user.createdDate | date: 'dd/MM/yyyy'}}
                 </td>
-                <td class="text-right">
-                    <button (click)="editUser(user)">Edit</button>
-                    <button (click)="deleteUser(user)">Delete</button>
-                    <button>Khóa</button>
+                <td>
+                    <button class="btn btn-sm btn-primary" (click)="editUser(user)">Edit</button>
+                    <button class="btn btn-sm btn-warning">Khóa</button>
                 </td>
             </tr>
         </tbody>
