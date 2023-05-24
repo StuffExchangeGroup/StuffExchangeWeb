@@ -15,4 +15,8 @@ export class ProductManagementService {
     public getProducts(): Observable<any> {
         return this.httpClient.get<any>(this.baseUrl + 'api/products');
     }
+
+    public blockProduct(productId: number): Observable<any> {
+        return this.httpClient.put<any>(this.baseUrl + `api/products/block/${productId}`, {});
+    }
 }

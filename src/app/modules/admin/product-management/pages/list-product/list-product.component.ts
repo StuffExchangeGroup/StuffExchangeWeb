@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IProduct } from '../../models/IProduct';
 import { ProductManagementService } from '../../services/product-management.service';
 import { Router } from '@angular/router';
+import { CustomToastrService } from 'src/app/common/services/custom-toastr.service';
 
 @Component({
     selector: 'app-list-product',
@@ -13,7 +14,9 @@ export class ListProductComponent implements OnInit {
     public showLoadingCategories: boolean = false;
 
     constructor(private productManagementService: ProductManagementService,
-        private router: Router) { }
+        private router: Router,
+        private toastrService: CustomToastrService,
+    ) { }
 
     ngOnInit(): void {
         this.getProducts();
@@ -36,12 +39,22 @@ export class ListProductComponent implements OnInit {
             });
     }
 
-    public editProduct($event: string): void {
-        this.router.navigate(['/admin/user-management/add-user']);
-    }
-
-    public deleteProduct($event: string): void {
-        this.router.navigate(['/admin/user-management/edit-user/' + $event]);
+    public blockProduct($event: number): void {
+        this.showLoadingCategories = true;
+        this.productManagementService.blockProduct($event)
+            .subscribe({
+                next: (result) => {
+                    this.getProducts();
+                    console.log({ result })
+                    this.toastrService.success("Đã cập nhật trạng thái sản phẩm", "");
+                },
+                error: (e) => {
+                    this.showLoadingCategories = false;
+                },
+                complete: () => {
+                    this.showLoadingCategories = false;
+                }
+            });
     }
 
 }

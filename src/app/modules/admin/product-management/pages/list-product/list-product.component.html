@@ -12,7 +12,7 @@
                     </h3>
                 </div>
                 <app-product-table [ProductList]="(products)" [showLoadingCategories]="showLoadingCategories"
-                    (editProductEvent)="editProduct($event)" (deleteProductEvent)="deleteProduct($event)">
+                    (blockProductEvent)="blockProduct($event)">
                 </app-product-table>
             </div>
         </div>

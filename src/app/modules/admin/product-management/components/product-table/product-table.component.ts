@@ -15,8 +15,7 @@ export class ProductTableComponent implements OnInit {
         this._showLoadingCategory = value;
     }
 
-    @Output() editProductEvent = new EventEmitter<string>();
-    @Output() deleteProductEvent = new EventEmitter<string>();
+    @Output() blockProductEvent = new EventEmitter<number>();
 
     public _showLoadingCategory!: boolean;
 
@@ -26,11 +25,7 @@ export class ProductTableComponent implements OnInit {
         console.log(this.ProductList)
     }
 
-    public editProduct(category: IProduct): void {
-        // this.editUserEvent.emit(category.id)
-    }
-
-    public deleteProduct(category: IProduct): void {
-        // this.deleteUserEvent.emit(user.id)
+    public blockProduct(product: IProduct): void {
+        this.blockProductEvent.emit(product.id)
     }
 }
