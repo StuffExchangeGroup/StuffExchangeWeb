@@ -37,7 +37,6 @@ export class ListUserComponent extends BaseDestroyableDirective implements OnIni
         .subscribe({
             next: (result: any) => {
                 this.listUser = result;
-                console.log(this.listUser)
             },
             error: (e) => {
                 this.showLoadingUser = false;

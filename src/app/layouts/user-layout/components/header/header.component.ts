@@ -58,12 +58,12 @@ export class HeaderComponent implements OnInit {
         const w = window;
         const scrollTop = w.pageYOffset || doc.scrollTop;
 
-        if (scrollTop > this.lastScrollTop) {
+        if (scrollTop !== 0) {
             this.isHeaderHide = true;
         } else {
             this.isHeaderHide = false;
         }
-        this.lastScrollTop = scrollTop;
+        // this.lastScrollTop = scrollTop;
     }
 
     getIsLogin() {

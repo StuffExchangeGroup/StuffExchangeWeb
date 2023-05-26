@@ -26,7 +26,6 @@ export class ListCategoryComponent implements OnInit {
         .subscribe({
             next: (result) => {
                 this.categories = result.data.categories;
-                console.log(result)
             },
             error: (e) => {
                 this.showLoadingCategories = false;

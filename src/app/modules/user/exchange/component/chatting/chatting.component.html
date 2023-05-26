@@ -31,9 +31,9 @@
 </div>
 
 <div class="type-message">
-    <form [formGroup]="messageForm" (ngSubmit)="onSendMessage()" class="content">
+    <form [formGroup]="messageForm" (ngSubmit)="onSendMessage($event)" class="content">
         <input formControlName="message" name="message" placeholder="Nhập tin nhắn" class="input-message" type="text">
-        <button class="send-message">
+        <button type="submit" class="send-message">
             <span class="iconify" data-icon="fluent:send-16-filled" style="color: #44609f;" data-width="25"
                 data-height="25">
             </span>

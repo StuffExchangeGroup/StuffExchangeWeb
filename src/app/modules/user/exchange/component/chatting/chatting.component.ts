@@ -60,9 +60,8 @@ export class ChattingComponent implements OnInit {
         private authService: AuthService,
         private notificationService: NotificationService
     ) {
+        console.log(this.authService.getUser)
         this.currentUser = this.authService.getUser;
-
-
     }
 
     ngOnInit(): void {
@@ -79,8 +78,10 @@ export class ChattingComponent implements OnInit {
         return this.messageForm.get('message');
     }
 
-    onSendMessage() {
-
+    onSendMessage(event: any) {
+        console.log(this.ownerProductId, this.currentUserUID, this.exchangeProductId);
+        console.log(this.messageForm.valid, this.messageForm.dirty);
+        event.preventDefault()
         if (!this.ownerProductId || !this.currentUserUID || !this.exchangeProductId) {
             return;
         }
