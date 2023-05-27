@@ -19,7 +19,8 @@
                     {{product.name}}
                 </td>
                 <td>
-                    <img height="100px" width="100px" style="object-fit: cover;" [src]="product.thumbnail" />
+
+                    <img [src]="product.thumbnail" style="width: 177px; height: 110px; object-fit: cover; border-radius: 5px;" />
                 </td>
                 <td>
                     {{product.condition === "USED" ? "Đã sử dụng" : "Còn mới"}}
