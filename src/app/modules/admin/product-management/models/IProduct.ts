@@ -7,7 +7,8 @@ export interface IProduct {
     createdDate: Date,
     description: string,
     favoriteCount: number,
-    status: string
+    status: string,
+    isBlock: boolean
 }
 
 export interface IProductRes {

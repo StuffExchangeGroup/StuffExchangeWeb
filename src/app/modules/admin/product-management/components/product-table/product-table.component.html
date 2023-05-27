@@ -19,6 +19,7 @@
                     {{product.name}}
                 </td>
                 <td>
+
                     <img [src]="product.thumbnail" style="width: 177px; height: 110px; object-fit: cover; border-radius: 5px;" />
                 </td>
                 <td>
@@ -28,8 +29,11 @@
                     {{product.status === "AVAILABLE" ? "Hoạt động" : "Không có sẵn"}}
                 </td>
                 <td>
-                    <button class="btn btn-sm btn-primary" (click)="editProduct(product)">Edit</button>
-                    <button class="btn btn-sm btn-warning">Khóa</button>
+                    <!-- <button class="btn btn-sm btn-primary" (click)="editProduct(product)">Edit</button> -->
+                    <button *ngIf="product.isBlock" (click)="blockProduct(product)" class="btn btn-sm btn-success">Mở
+                        khóa</button>
+                    <button *ngIf="!product.isBlock" (click)="blockProduct(product)"
+                        class="btn btn-sm btn-warning">Khóa</button>
                 </td>
             </tr>
         </tbody>
