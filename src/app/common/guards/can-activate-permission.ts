@@ -16,6 +16,15 @@ export class CanActivatePermission implements CanActivate {
     ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
         const data = route.data;
         const isLoggedIn = this.authService.isLoggedIn;
+        const isAdmin = this.authService.isAdmin;
+        if (data['requireAdmin']) {
+            if (isAdmin) { return true; }
+            else {
+                this.router.navigate(['/home']);
+                return false;
+            }
+        }
+
         if (data['requireLogin']) {
             if (isLoggedIn) {
                 // this.router.navigate(['/admin']);

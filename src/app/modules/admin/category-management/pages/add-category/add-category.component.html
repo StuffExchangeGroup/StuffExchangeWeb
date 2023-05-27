@@ -1,0 +1,18 @@
+<div class="container-fluid mt-6">
+    <div class="row">
+        <div class="col">
+            <div class="card shadow">
+                <div class="card-header border-0">
+                    <h3 class="mb-0">
+                        Add User
+                    </h3>
+                </div>
+                <div class="card-body px-lg-5 py-lg-1">
+                    <app-add-category-form [messageError]="messageError" [showLoadingCategoryForm]="showLoadingUserForm"
+                        (submitAddUserFormEvent)="submitUser($event)">
+                    </app-add-category-form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

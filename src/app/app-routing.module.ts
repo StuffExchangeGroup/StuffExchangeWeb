@@ -5,7 +5,7 @@ import { CanActivatePermission } from './common/guards/can-activate-permission';
 const routes: Routes = [
     {
         path: '',
-        loadChildren:() => import('./layouts/user-layout/user-layout.module').then(m => m.UserLayoutModule),
+        loadChildren: () => import('./layouts/user-layout/user-layout.module').then(m => m.UserLayoutModule),
         data: {
             requireLogin: false
         }
@@ -19,7 +19,7 @@ const routes: Routes = [
         path: 'auth',
         loadChildren: () => import('../app/layouts/auth-layout/auth-layout.module').then(m => m.AuthLayoutModule),
         data: {
-            requireLogin: false
+            requireLogin: false,
         },
         canActivate: [CanActivatePermission]
     },
@@ -27,7 +27,8 @@ const routes: Routes = [
         path: 'admin',
         loadChildren: () => import('../app/layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule),
         data: {
-            requireLogin: true
+            requireLogin: true,
+            requireAdmin: true,
         },
         canActivate: [CanActivatePermission]
     },
@@ -39,8 +40,8 @@ const routes: Routes = [
 
 @NgModule({
     imports: [RouterModule.forRoot(routes, {
-    initialNavigation: 'enabledBlocking'
-})],
+        initialNavigation: 'enabledBlocking'
+    })],
     exports: [RouterModule]
 })
 export class AppRoutingModule { }

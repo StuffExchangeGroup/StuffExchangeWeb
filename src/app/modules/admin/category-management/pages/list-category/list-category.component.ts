@@ -5,43 +5,46 @@ import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-list-category',
-  templateUrl: './list-category.component.html',
-  styleUrls: ['./list-category.component.scss']
+    selector: 'app-list-category',
+    templateUrl: './list-category.component.html',
+    styleUrls: ['./list-category.component.scss']
 })
 export class ListCategoryComponent implements OnInit {
-  public categories?: ICategory[];
-  public showLoadingCategories: boolean = false;
+    public categories?: ICategory[];
+    public showLoadingCategories: boolean = false;
 
-  constructor(private categoryService: CategoryManagementService,
-    private router: Router) { }
+    constructor(private categoryService: CategoryManagementService,
+        private router: Router) { }
 
-  ngOnInit(): void {
-    this.getCategories();
-  }
+    ngOnInit(): void {
+        this.getCategories();
+    }
 
-  public getCategories(): void {
-    this.showLoadingCategories = true;
+    public getCategories(): void {
+        this.showLoadingCategories = true;
         this.categoryService.getCategories()
-        .subscribe({
-            next: (result) => {
-                this.categories = result.data.categories;
-            },
-            error: (e) => {
-                this.showLoadingCategories = false;
-            },
-            complete: () => {
-                this.showLoadingCategories = false;
-            }
-        });
-  }
+            .subscribe({
+                next: (result) => {
+                    this.categories = result.data.categories;
+                },
+                error: (e) => {
+                    this.showLoadingCategories = false;
+                },
+                complete: () => {
+                    this.showLoadingCategories = false;
+                }
+            });
+    }
 
-  public editCategory($event: string): void {
-    this.router.navigate(['/admin/user-management/add-user']);
-  }
+    public editCategory($event: string): void {
+        this.router.navigate(['/admin/user-management/add-user']);
+    }
 
-  public deleteCategory($event: string): void {
-      this.router.navigate(['/admin/user-management/edit-user/' + $event]);
-  }
+    public deleteCategory($event: string): void {
+        this.router.navigate(['/admin/user-management/edit-user/' + $event]);
+    }
+    public createCategory(): void {
+        this.router.navigate(['/admin/category-management/add-category']);
+    }
 
 }

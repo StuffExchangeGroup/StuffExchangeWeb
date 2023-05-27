@@ -29,6 +29,15 @@ export class AuthService {
         return this.user != undefined;
     }
 
+    public get isAdmin(): boolean {
+        this.user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user') || '') : undefined;
+        const authorities = this.user?.authorities;
+        if (!authorities) return false;
+        const result = authorities.some((authority: any) => authority.name === 'ROLE_ADMIN');
+
+        return result;
+    }
+
     public get getToken(): string {
         let access_token = localStorage.getItem('access_token') ? JSON.parse(localStorage.getItem('access_token') || '') : undefined;
         return access_token;

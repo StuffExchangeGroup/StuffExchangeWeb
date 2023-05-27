@@ -22,6 +22,7 @@ export interface IUser {
     uid: string | undefined;
     point: string | undefined;
     userName: string;
+    authorities: any
 }
 
 export class User implements IUser {
@@ -42,4 +43,5 @@ export class User implements IUser {
     uid: string | undefined;
     point: string | undefined;
     userName!: string;
+    authorities: any
 }
