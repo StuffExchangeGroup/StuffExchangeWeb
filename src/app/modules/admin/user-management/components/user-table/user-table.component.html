@@ -29,7 +29,11 @@
                 </td>
                 <td>
                     <!-- <button class="btn btn-sm btn-primary" (click)="editUser(user)">Edit</button> -->
-                    <button class="btn btn-sm btn-warning">Khóa</button>
+                    <button *ngIf="!user.isBlock" (click)="blockUser(user)" class="btn btn-sm btn-danger">Khóa</button>
+
+                    <button *ngIf="user.isBlock" (click)="blockUser(user)" class="btn btn-sm btn-success">Mở khóa
+                        Khóa</button>
+
                 </td>
             </tr>
         </tbody>

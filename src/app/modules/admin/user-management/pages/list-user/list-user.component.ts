@@ -34,17 +34,17 @@ export class ListUserComponent extends BaseDestroyableDirective implements OnIni
     public getListUser(): void {
         this.showLoadingUser = true;
         this.userManagementService.getListUser()
-        .subscribe({
-            next: (result: any) => {
-                this.listUser = result;
-            },
-            error: (e) => {
-                this.showLoadingUser = false;
-            },
-            complete: () => {
-                this.showLoadingUser = false;
-            }
-        });
+            .subscribe({
+                next: (result: any) => {
+                    this.listUser = result;
+                },
+                error: (e) => {
+                    this.showLoadingUser = false;
+                },
+                complete: () => {
+                    this.showLoadingUser = false;
+                }
+            });
     }
 
     public addUser(): void {
@@ -66,6 +66,23 @@ export class ListUserComponent extends BaseDestroyableDirective implements OnIni
                     }
                     else {
                         this.toastr.error(result.message, TypeNotification.Error);
+                    }
+                },
+                error: (e) => this.toastr.success(e.message, TypeNotification.Error),
+            });
+    }
+
+    public blockUser($event: string): void {
+        this.userManagementService.blockUser($event)
+            .pipe(takeUntil(this.destroy$))
+            .subscribe({
+                next: (result) => {
+                    if (result) {
+                        this.toastr.success('Cập nhật thành công', TypeNotification.Success);
+                        this.getListUser();
+                    }
+                    else {
+                        this.toastr.error("Có lỗi xảy ra", TypeNotification.Error);
                     }
                 },
                 error: (e) => this.toastr.success(e.message, TypeNotification.Error),

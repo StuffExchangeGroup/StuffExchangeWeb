@@ -5,6 +5,7 @@
                 <th scope="col">Mã</th>
                 <th scope="col">Tên</th>
                 <th scope="col">Ảnh</th>
+                <th scope="col">Xem sản phẩm</th>
                 <th scope="col">Tình trạng</th>
                 <th scope="col">Trạng thái</th>
                 <th scope="col">Hành động</th>
@@ -18,9 +19,17 @@
                 <td>
                     {{product.name}}
                 </td>
+
                 <td>
 
-                    <img [src]="product.thumbnail" style="width: 177px; height: 110px; object-fit: cover; border-radius: 5px;" />
+                    <img [src]="product.thumbnail"
+                        style="width: 177px; height: 110px; object-fit: cover; border-radius: 5px;" />
+                </td>
+                <td>
+                    <a [routerLink]="['/products/' + product.id]" href="">Xem chi tiết
+
+                    </a>
+
                 </td>
                 <td>
                     {{product.condition === "USED" ? "Đã sử dụng" : "Còn mới"}}

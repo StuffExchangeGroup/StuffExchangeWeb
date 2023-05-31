@@ -32,5 +32,6 @@ export interface IUser {
     accessToken: string;
     type: string;
     imgURL: string;
-    password: string
+    password: string;
+    isBlock: boolean;
 }

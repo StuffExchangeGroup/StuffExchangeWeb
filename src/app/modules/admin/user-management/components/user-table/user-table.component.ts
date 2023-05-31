@@ -4,32 +4,36 @@ import { IUser } from 'src/app/common/models/user-login-model';
 // import { IListUserReponse } from '../../models/IUser';
 
 @Component({
-  selector: 'app-user-table',
-  templateUrl: './user-table.component.html',
-  styleUrls: ['./user-table.component.scss']
+    selector: 'app-user-table',
+    templateUrl: './user-table.component.html',
+    styleUrls: ['./user-table.component.scss']
 })
 export class UserTableComponent implements OnInit {
-  @Input() listUser?: IUser[];
-  @Input() set showLoadingUser(value: boolean) {
-    value ? this.spinner.show() : ''
-    this._showLoadingUser = value;
-  }
+    @Input() listUser?: IUser[];
+    @Input() set showLoadingUser(value: boolean) {
+        value ? this.spinner.show() : ''
+        this._showLoadingUser = value;
+    }
 
-  @Output() editUserEvent = new EventEmitter<string>();
-  @Output() deleteUserEvent = new EventEmitter<string>();
+    @Output() editUserEvent = new EventEmitter<string>();
+    @Output() deleteUserEvent = new EventEmitter<string>();
+    @Output() blockUserEvent = new EventEmitter<string>();
 
-  public _showLoadingUser!: boolean; 
+    public _showLoadingUser!: boolean;
 
-  constructor(private spinner: NgxSpinnerService) { }
+    constructor(private spinner: NgxSpinnerService) { }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+    }
 
-  public editUser(user: IUser): void { 
-    this.editUserEvent.emit(user.id)
-  }
+    public editUser(user: IUser): void {
+        this.editUserEvent.emit(user.id)
+    }
 
-  public deleteUser(user: IUser): void { 
-    this.deleteUserEvent.emit(user.id)
-  }
+    public deleteUser(user: IUser): void {
+        this.deleteUserEvent.emit(user.id)
+    }
+    public blockUser(user: IUser): void {
+        this.blockUserEvent.emit(user.id)
+    }
 }
