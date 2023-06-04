@@ -39,8 +39,8 @@
                 </td>
                 <td>
                     <!-- <button class="btn btn-sm btn-primary" (click)="editProduct(product)">Edit</button> -->
-                    <button *ngIf="product.isBlock" (click)="blockProduct(product)" class="btn btn-sm btn-success">Mở
-                        khóa</button>
+                    <button *ngIf="product.isBlock" (click)="blockProduct(product)"
+                        class="btn btn-sm btn-success">Duyệt</button>
                     <button *ngIf="!product.isBlock" (click)="blockProduct(product)"
                         class="btn btn-sm btn-warning">Khóa</button>
                 </td>

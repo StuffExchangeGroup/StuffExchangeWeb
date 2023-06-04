@@ -28,9 +28,8 @@
                     {{category.active ? "Hoạt động" : "Tạm ngưng"}}
                 </td>
                 <td>
-                    <button class="btn btn-sm btn-primary" (click)="editUser(category)">Sửa</button>
-                    <button class="btn btn-sm btn-warning">Khóa</button>
-                    <button class="btn btn-sm btn-danger" (click)="deleteUser(category)">Xóa</button>
+                    <button class="btn btn-sm btn-primary" (click)="editCategory(category)">Sửa</button>
+                    <button class="btn btn-sm btn-danger" (click)="blockCategory(category)">Khóa</button>
                 </td>
             </tr>
         </tbody>
