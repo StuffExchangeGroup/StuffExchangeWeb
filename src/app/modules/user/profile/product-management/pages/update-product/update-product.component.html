@@ -106,10 +106,10 @@
                     <input formControlName="purposeIds" name="purposeIds" class=" mr-2 cursor" type="radio" value="2" />
                     <span style="font-weight: 300;">Trao đổi</span>
                 </div>
-                <div class="d-flex align-items-center mr-3">
+                <!-- <div class="d-flex align-items-center mr-3">
                     <input formControlName="purposeIds" name="purposeIds" class=" mr-2 cursor" type="radio" value="4" />
                     <span style="font-weight: 300;">Tặng</span>
-                </div>
+                </div> -->
                 <div *ngIf="!purposeIds?.valid && (purposeIds?.dirty ||purposeIds?.touched)"
                     class="error-message d-flex align-content-center">
                     <div [hidden]="!purposeIds?.errors?.['required']">
