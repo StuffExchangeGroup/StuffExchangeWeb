@@ -12,8 +12,8 @@ export class ProductManagementService {
 
     constructor(private httpClient: HttpClient) { }
 
-    public getProducts(): Observable<any> {
-        return this.httpClient.get<any>(this.baseUrl + 'api/products');
+    public getProducts(status: any): Observable<any> {
+        return this.httpClient.get<any>(this.baseUrl + `api/products?size=1000${status === 'null' ? '' : `&status=${status}`}`);
     }
 
     public blockProduct(productId: number): Observable<any> {

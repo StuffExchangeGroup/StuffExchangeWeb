@@ -40,7 +40,7 @@ export class AdminDashboardComponent implements OnInit {
     }
 
     public getProducts(): void {
-        this.productManagementService.getProducts()
+        this.productManagementService.getProducts(0)
             .subscribe({
                 next: (result) => {
                     result = result.slice(0, 5);

@@ -3,13 +3,21 @@
     <div class="row">
         <div class="col">
             <div class="card shadow">
-                <div class="card-header border-0">
+                <div class="card-header border-0 d-flex justify-content-between">
                     <h3 class="mb-0">
                         Danh sách sản phẩm
                         <span class="icon-button">
                             <i class="fas fa-plus"></i>
                         </span>
                     </h3>
+                    <div class="content">
+                        <select (change)="handleChangeStatus($event)" class="form-select select-selected"
+                            aria-label="Default select example">
+                            <option value="0" selected>Tất cả </option>
+                            <option value="2">Đã duyệt</option>
+                            <option value="1">Chưa duyệt</option>
+                        </select>
+                    </div>
                 </div>
                 <app-product-table [ProductList]="(products)" [showLoadingCategories]="showLoadingCategories"
                     (blockProductEvent)="blockProduct($event)">

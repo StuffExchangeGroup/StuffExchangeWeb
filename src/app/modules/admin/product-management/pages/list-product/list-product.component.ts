@@ -12,6 +12,7 @@ import { CustomToastrService } from 'src/app/common/services/custom-toastr.servi
 export class ListProductComponent implements OnInit {
     public products?: IProduct[];
     public showLoadingCategories: boolean = false;
+    public status: any = 'ALL';
 
     constructor(private productManagementService: ProductManagementService,
         private router: Router,
@@ -19,12 +20,13 @@ export class ListProductComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        this.getProducts();
+        this.getProducts(this.status);
     }
 
-    public getProducts(): void {
+    public getProducts(status: any): void {
+        console.log(status)
         this.showLoadingCategories = true;
-        this.productManagementService.getProducts()
+        this.productManagementService.getProducts(status)
             .subscribe({
                 next: (result) => {
                     this.products = result;
@@ -44,7 +46,7 @@ export class ListProductComponent implements OnInit {
         this.productManagementService.blockProduct($event)
             .subscribe({
                 next: (result) => {
-                    this.getProducts();
+                    this.getProducts(this.status);
                     console.log({ result })
                     this.toastrService.success("Đã cập nhật trạng thái sản phẩm", "");
                 },
@@ -55,6 +57,10 @@ export class ListProductComponent implements OnInit {
                     this.showLoadingCategories = false;
                 }
             });
+    }
+
+    public handleChangeStatus($event: any): void {
+        this.getProducts($event.target.value);
     }
 
 }
